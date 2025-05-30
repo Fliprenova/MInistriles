@@ -69,64 +69,31 @@
       text-align:center; 
       margin-bottom: 2rem;
     }
-    .min-proyecto {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      background: #f7f7f7;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      padding: 2rem 1.5rem 2.2rem 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-    .min-proyecto img {
-      max-width: 320px;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(79,195,247,0.09);
-    }
-    .min-proyecto-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #1782c9;
-      margin-bottom: 0.7rem;
-      letter-spacing: 1px;
-    }
     .proyectos-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: center;
     }
-    .proyecto-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-      width: 280px;
-      text-align: center;
-      text-decoration: none;
-      padding: 2rem 0;
-      transition: box-shadow 0.2s;
-      color: #222;
-    }
-    .proyecto-card:hover {
-      box-shadow: 0 4px 24px rgba(79,195,247,0.13);
-      color: #4fc3f7;
-    }
-    .proyecto-card img {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(79,195,247,0.08);
-    }
-    .proyecto-card span {
+    .proyecto-img-link {
       display: block;
-      font-weight: bold;
-      font-size: 1.18rem;
-      letter-spacing: 1px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      transition: box-shadow 0.2s, transform 0.15s;
+      width: 360px;
+      max-width: 90vw;
+      margin: 0 auto;
+    }
+    .proyecto-img-link:hover {
+      box-shadow: 0 6px 28px rgba(79,195,247,0.17);
+      transform: scale(1.03);
+    }
+    .proyecto-img-link img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 220px;
     }
     @media (max-width: 600px) {
       .header {
@@ -148,8 +115,11 @@
         font-size: 0.97rem;
         padding: 0.7rem 0.2rem;
       }
-      .min-proyecto img {
-        max-width: 98vw;
+      .proyecto-img-link {
+        width: 96vw;
+      }
+      .proyecto-img-link img {
+        height: 150px;
       }
     }
   </style>
@@ -168,15 +138,12 @@
   </div>
   <div class="container">
     <h1>Proyectos</h1>
-    <div class="min-proyecto">
-      <div class="min-proyecto-title">Proyecto Ministriles</div>
-      <img src="cabeceraministriles.jpg" alt="Proyecto Ministriles">
-      <a class="proyecto-card" href="ministriles.html">
-        <img src="logo.jpg" alt="Ir a Proyecto Ministriles">
-        <span>Ver Proyecto Ministriles</span>
+    <div class="proyectos-grid">
+      <a href="ministriles.html" class="proyecto-img-link">
+        <img src="Proyecto Ministriles/foto-proyecto-ministriles.jpg" alt="Proyecto Ministriles">
       </a>
+      <!-- Puedes añadir más proyectos aquí si lo deseas -->
     </div>
-    <!-- Puedes añadir más proyectos aquí si quieres -->
   </div>
 </body>
 </html>
