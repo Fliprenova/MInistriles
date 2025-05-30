@@ -8,6 +8,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@500&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body { margin:0; font-family:'Quicksand', Arial, sans-serif; background:#f8fafc; }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 0 12px 24px;
+      background: #fff;
+      box-shadow: 0 2px 10px #e3ecf9a8;
+    }
+    .logo {
+      height: 46px;
+      width: auto;
+      display: block;
+    }
+    .empresa-nombre {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 1.45em;
+      color: #2176ff;
+      letter-spacing: 1.2px;
+      margin: 0;
+      text-transform: uppercase;
+      text-shadow: 1px 2px 7px #e0ecfb;
+    }
     .container {
       max-width: 960px;
       margin: 0 auto 60px auto;
@@ -135,10 +158,47 @@
       background: #1450a3;
       color: #fff;
     }
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.84);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.2s;
+    }
+    .lightbox img {
+      max-width: 94vw;
+      max-height: 90vh;
+      border-radius: 14px;
+      box-shadow: 0 6px 38px #0009;
+      background: #fff;
+      display: block;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 32px;
+      right: 46px;
+      color: #fff;
+      font-size: 2.8em;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10001;
+      text-shadow: 0 2px 8px #0009;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: #ffd700; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
     @media (max-width: 900px) {
       .proyecto-header { flex-direction: column; gap: 20px; padding: 18px 6vw 22px 6vw;}
       .proyecto-img-principal { width: 90vw; max-width: 400px;}
       .galeria-fotos img { width: 95vw; max-width: 370px;}
+      .header { padding-left: 4vw;}
     }
     @media (max-width: 500px) {
       .main-title { font-size: 1.14em;}
@@ -146,14 +206,56 @@
       .proyecto-desc { font-size: 0.99em;}
       .container { padding: 0 3vw;}
       .galeria-fotos img { width: 97vw; max-width: 98vw;}
+      .empresa-nombre { font-size: 1em;}
+      .header { padding: 10px 0 7px 2vw;}
+      .logo { height: 32px;}
+      .lightbox-close { top: 8px; right: 12px; font-size: 2em;}
     }
   </style>
+  <script>
+    // Lightbox functionality
+    document.addEventListener('DOMContentLoaded', function(){
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const galeriaImgs = document.querySelectorAll('.galeria-fotos img');
+      galeriaImgs.forEach(img => {
+        img.addEventListener('click', function() {
+          lightboxImg.src = this.src;
+          lightbox.style.display = 'flex';
+        });
+      });
+      document.getElementById('lightbox-close').onclick = function() {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+      };
+      // Close on background click
+      lightbox.onclick = function(e) {
+        if (e.target === lightbox) {
+          lightbox.style.display = 'none';
+          lightboxImg.src = '';
+        }
+      };
+      // Close on ESC key
+      document.addEventListener('keydown', function(e){
+        if (e.key === "Escape") {
+          lightbox.style.display = 'none';
+          lightboxImg.src = '';
+        }
+      });
+    });
+  </script>
 </head>
 <body>
+  <header class="header">
+    <a href="index.html">
+      <img src="logo.jpg" alt="Flip Renova 360 logo" class="logo">
+    </a>
+    <span class="empresa-nombre">Flip Renova 360</span>
+  </header>
   <div class="container">
     <h1 class="main-title">Proyecto destacado</h1>
     <section class="proyecto-header">
-      <img src="ministriles/ministriles.jpg" alt="Ministriles - Flip Renova 360" class="proyecto-img-principal">
+      <img src="Ministriles/imagenes/ministriles.jpg" alt="Ministriles - Flip Renova 360" class="proyecto-img-principal">
       <div class="proyecto-info">
         <h2 class="proyecto-titulo">Ministriles</h2>
         <div class="proyecto-datos">Sótano en el centro histórico de Madrid • Más de 100 años de historia</div>
@@ -181,6 +283,12 @@
       </figure>
     </div>
   </div>
+  <!-- Lightbox overlay -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Imagen ampliada">
+  </div>
 </body>
 </html>
+
  
