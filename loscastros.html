@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyecto Los Castros | Flip Renova 360</title>
+  <link rel="stylesheet" href="estilos.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@500&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; font-family:'Quicksand', Arial, sans-serif; background:#f8fafc; }
+    .container {
+      max-width: 960px;
+      margin: 0 auto 60px auto;
+      padding: 0 18px;
+    }
+    .main-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 2.2em;
+      letter-spacing: 1.4px;
+      color: #2176ff;
+      text-shadow: 1px 2px 8px #e0ecfb;
+      text-transform: uppercase;
+      margin: 44px auto 18px auto;
+      text-align: center;
+    }
+    .proyecto-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(33, 118, 255, 0.07);
+      padding: 32px 18px 30px 18px;
+      margin-bottom: 30px;
+    }
+    .proyecto-img-principal {
+      width: 350px;
+      max-width: 92vw;
+      border-radius: 15px;
+      box-shadow: 0 4px 14px rgba(33,118,255,0.08);
+      object-fit: cover;
+      margin: 0 auto;
+      display: block;
+    }
+    .proyecto-info {
+      flex: 1 1 340px;
+      min-width: 250px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .proyecto-titulo {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2em;
+      font-weight: 900;
+      color: #2176ff;
+      margin-bottom: 12px;
+      margin-top: 0;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+    .proyecto-datos {
+      font-family: 'Quicksand', Arial, sans-serif;
+      color: #1450a3;
+      font-size: 1.04em;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .proyecto-desc {
+      font-family: 'Nunito', 'Quicksand', Arial, sans-serif;
+      font-size: 1.13em;
+      color: #222;
+      line-height: 1.7;
+      margin-bottom: 17px;
+    }
+    .galeria-titulo {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 1.25em;
+      color: #2176ff;
+      margin: 38px 0 16px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .galeria-fotos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .galeria-fotos figure {
+      margin: 0;
+      text-align: center;
+    }
+    .galeria-fotos img {
+      width: 250px;
+      max-width: 90vw;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #cfe3ff;
+      object-fit: cover;
+      background: #fff;
+      transition: transform .15s;
+      cursor: pointer;
+    }
+    .galeria-fotos img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 6px 18px #2176ff33;
+    }
+    .galeria-fotos figcaption {
+      font-size: 0.96em;
+      color: #495;
+      margin-top: 6px;
+      font-family: 'Quicksand', Arial, sans-serif;
+    }
+    .volver {
+      display: inline-block;
+      margin: 18px 0 0 0;
+      background: #2176ff;
+      color: #fff;
+      border-radius: 5px;
+      padding: 8px 22px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 1.09em;
+      text-decoration: none;
+      letter-spacing: 0.7px;
+      transition: background 0.18s, color 0.18s;
+      box-shadow: 0 1px 5px rgba(33, 118, 255, 0.09);
+    }
+    .volver:hover {
+      background: #1450a3;
+      color: #fff;
+    }
+    @media (max-width: 900px) {
+      .proyecto-header { flex-direction: column; gap: 20px; padding: 18px 6vw 22px 6vw;}
+      .proyecto-img-principal { width: 90vw; max-width: 400px;}
+      .galeria-fotos img { width: 95vw; max-width: 370px;}
+    }
+    @media (max-width: 500px) {
+      .main-title { font-size: 1.14em;}
+      .proyecto-titulo { font-size: 1.05em;}
+      .proyecto-desc { font-size: 0.99em;}
+      .container { padding: 0 3vw;}
+      .galeria-fotos img { width: 97vw; max-width: 98vw;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-title">Proyecto destacado</h1>
+    <section class="proyecto-header">
+      <img src="loscastros/salon_cocina.jpg" alt="Salón y cocina unidos - Los Castros" class="proyecto-img-principal">
+      <div class="proyecto-info">
+        <h2 class="proyecto-titulo">Los Castros</h2>
+        <div class="proyecto-datos">Apartamento pequeño con vistas al mar Cantábrico</div>
+        <div class="proyecto-desc">
+          Reforma integral para transformar un apartamento tradicional en un espacio moderno y luminoso, maximizando la funcionalidad y las vistas.<br>
+          Se unieron el salón y la cocina en un único ambiente abierto, se generó una habitación suite y se obtuvo un baño adicional completo.<br>
+          El proyecto está enfocado en potenciar la luz natural y las vistas al mar, creando espacios cómodos y actuales.
+        </div>
+        <a href="index.html" class="volver">← Volver al inicio</a>
+      </div>
+    </section>
+    <div class="galeria-titulo">Galería</div>
+    <div class="galeria-fotos">
+      <figure>
+        <img src="loscastros/salon_cocina.jpg" alt="Salón y cocina unidos">
+        <figcaption>Salón y cocina: un único espacio abierto y funcional</figcaption>
+      </figure>
+      <figure>
+        <img src="loscastros/ventanalesconvistas.jpg" alt="Ventanales con vistas al mar">
+        <figcaption>Grandes ventanales que inundan de luz el apartamento y ofrecen vistas al mar Cantábrico</figcaption>
+      </figure>
+    </div>
+  </div>
+</body>
+</html>
