@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="estilos.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Fonts para una tipografía más atractiva -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@500&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body { margin:0; font-family: 'Quicksand', Arial, sans-serif; background:#f8fafc; }
     .main-container {
@@ -116,10 +116,25 @@
       max-width: 750px;
       margin: 50px auto 0 auto;
       padding: 0 24px;
-      font-size: 1.13em;
+      font-size: 1.15em;
       color: #222;
-      line-height: 1.6;
+      line-height: 1.7;
       text-align: center;
+      font-family: 'Nunito', 'Quicksand', Arial, sans-serif;
+      font-weight: 500;
+      background: none;
+      border-radius: 12px;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 16px rgba(33, 118, 255, 0.03);
+    }
+    .descripcion h2 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2em;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #2176ff;
+      margin-bottom: 12px;
+      margin-top: 0;
     }
     /* Contacto oculto por defecto */
     #contacto-section {
@@ -130,6 +145,77 @@
       from { opacity: 0; transform: translateY(30px);}
       to   { opacity: 1; transform: translateY(0);}
     }
+
+    /* Últimos proyectos */
+    .ultimos-proyectos-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 2.0em;
+      letter-spacing: 1.5px;
+      color: #2176ff;
+      text-shadow: 1px 2px 8px #e0ecfb;
+      text-transform: uppercase;
+      margin: 70px auto 28px auto;
+      text-align: center;
+    }
+    .proyectos-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px;
+      justify-content: center;
+      margin-bottom: 64px;
+    }
+    .proyecto-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 3px 16px rgba(33, 118, 255, 0.09);
+      overflow: hidden;
+      width: 310px;
+      max-width: 90vw;
+      text-align: center;
+      transition: transform 0.18s, box-shadow 0.18s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .proyecto-card:hover {
+      transform: translateY(-8px) scale(1.027);
+      box-shadow: 0 8px 28px rgba(33, 118, 255, 0.18);
+    }
+    .proyecto-img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-bottom: 1px solid #e1e6f0;
+    }
+    .proyecto-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.28em;
+      font-weight: bold;
+      color: #2176ff;
+      margin: 18px 0 10px 0;
+      letter-spacing: 1px;
+    }
+    .proyecto-link {
+      display: inline-block;
+      font-family: 'Quicksand', Arial, sans-serif;
+      color: #1450a3;
+      background: #e8f1ff;
+      border-radius: 5px;
+      padding: 7px 22px;
+      margin-bottom: 18px;
+      font-size: 1em;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.18s, color 0.18s;
+      box-shadow: 0 1px 5px rgba(33, 118, 255, 0.05);
+    }
+    .proyecto-link:hover {
+      background: #2176ff;
+      color: #fff;
+      text-decoration: underline;
+    }
+
     @media (max-width: 900px) {
       .main-container { flex-direction: column; }
       .side-bar {
@@ -143,6 +229,7 @@
       .logo-nombre { flex-direction: row; gap: 14px; margin-bottom: 10px;}
       .logo { width: 70px; }
       .site-title-stack { font-size: 1.3em;}
+      .proyectos-grid { gap: 18px;}
     }
     @media (max-width: 500px) {
       .descripcion { font-size: 0.99em; }
@@ -151,6 +238,9 @@
       .logo-nombre { gap: 8px; }
       .logo { width: 42px;}
       .site-title-stack { font-size: 0.95em;}
+      .ultimos-proyectos-title { font-size: 1.14em; }
+      .proyecto-card { width: 98vw; min-width: 0; }
+      .proyecto-img { height: 140px;}
     }
   </style>
   <script>
@@ -196,7 +286,7 @@
       <section class="descripcion">
         <h2>Bienvenido a Flip Renova 360</h2>
         <p>
-          En <b style="color:#2176ff;">Flip Renova 360</b> nos especializamos en la transformación integral de espacios, ofreciendo soluciones de renovación, diseño y reforma con un enfoque profesional y personalizado.<br>
+          En <b style="color:#2176ff;">Flip Renova 360</b> nos especializamos en la <span style="color:#1450a3;font-weight:700;">transformación integral de espacios</span>, ofreciendo soluciones de renovación, diseño y reforma con un enfoque profesional y personalizado.<br>
           Nuestra misión es aportar valor a cada proyecto, cuidando cada detalle y acompañando a nuestros clientes en todo el proceso, desde la idea inicial hasta la entrega final.<br><br>
           Descubre algunos de nuestros <a href="proyectos.html" style="color:#2176ff;font-weight:bold;">proyectos destacados</a> o <a href="javascript:void(0)" onclick="mostrarContacto()" style="color:#2176ff;font-weight:bold;">contacta con nosotros</a> para más información.
         </p>
@@ -215,6 +305,22 @@
           <button type="submit" style="background:#2176ff;color:#fff;padding:8px 24px;border:none;border-radius:5px;cursor:pointer;">Enviar</button>
         </form>
       </section>
+
+      <!-- Últimos proyectos -->
+      <h2 class="ultimos-proyectos-title">Últimos proyectos</h2>
+      <div class="proyectos-grid">
+        <div class="proyecto-card">
+          <img src="ministriles.jpg" alt="Proyecto Ministriles" class="proyecto-img">
+          <div class="proyecto-title">Ministriles</div>
+          <a class="proyecto-link" href="proyectos.html#ministriles">Ver proyecto</a>
+        </div>
+        <div class="proyecto-card">
+          <img src="loscastros.jpg" alt="Proyecto Los Castros" class="proyecto-img">
+          <div class="proyecto-title">Los Castros</div>
+          <a class="proyecto-link" href="proyectos.html#loscastros">Ver proyecto</a>
+        </div>
+      </div>
+
     </main>
   </div>
 </body>
