@@ -18,7 +18,7 @@
       background: #fff;
       min-width: 320px;
       max-width: 400px;
-      padding: 40px 30px 30px 30px;
+      padding: 50px 30px 30px 30px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -29,14 +29,14 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 30px;
+      gap: 40px;
       width: 100%;
-      margin-bottom: 25px;
+      margin-bottom: 35px;
     }
     .logo {
-      width: 120px;
-      max-width: 35vw;
-      min-width: 80px;
+      width: 170px;
+      max-width: 40vw;
+      min-width: 100px;
       height: auto;
       transition: width 0.3s;
     }
@@ -48,8 +48,8 @@
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 900;
       line-height: 1.0;
-      font-size: 2.3em;
-      letter-spacing: 1.5px;
+      font-size: 3em;
+      letter-spacing: 2.2px;
       color: #2176ff;
       text-shadow: 1px 2px 8px #e0ecfb;
       text-transform: uppercase;
@@ -73,8 +73,8 @@
       text-decoration: none;
       color: #2176ff;
       font-weight: 700;
-      font-size: 1.17em;
-      letter-spacing: 0.5px;
+      font-size: 1.25em;
+      letter-spacing: 0.7px;
       transition: color 0.2s;
       padding-left: 2px;
       font-family: 'Montserrat', Arial, sans-serif;
@@ -86,13 +86,23 @@
     .side-bar hr {
       border: none;
       border-top: 1px solid #e0e6ee;
-      margin: 22px 0 16px 0;
+      margin: 28px 0 18px 0;
       width: 100%;
     }
     .side-bar .contacto-breve {
-      font-size: 1em;
+      font-size: 1.19em;
       color: #444;
-      margin-top: 12px;
+      margin-top: 35px;
+      font-weight: bold;
+      line-height: 1.45;
+    }
+    .side-bar .contacto-breve span {
+      color:#2176ff;
+      font-size: 1.25em;
+      font-weight: 900;
+      display: block;
+      margin-top: 8px;
+      letter-spacing: 1px;
     }
 
     .main-content {
@@ -104,13 +114,19 @@
       padding: 0;
       background: #f8fafc;
       min-width: 0;
+      width: 100%;
     }
     .cabecera-img {
       width: 100%;
-      max-height: 350px;
+      max-height: 570px;
+      min-height: 280px;
+      height: 36vw;
       object-fit: cover;
-      min-height: 210px;
       background: #d0e7ff;
+      border-bottom: 2px solid #e6effb;
+      margin-bottom: 0;
+      box-shadow: 0 6px 18px #b4d9ff44;
+      display: block;
     }
     .descripcion {
       max-width: 750px;
@@ -129,18 +145,62 @@
     }
     .descripcion h2 {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2em;
+      font-size: 2.2em;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       color: #2176ff;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       margin-top: 0;
     }
     /* Contacto oculto por defecto */
     #contacto-section {
       display: none;
       animation: fadeIn 0.6s;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px #b4d9ff33;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      padding: 38px 22px 30px 22px;
+      width: 100%;
+      max-width: 540px;
+      position: relative;
+      left: 0;
+      right: 0;
     }
+    #contacto-section h2 {
+      color:#2176ff;
+      margin-top:0;
+      margin-bottom:18px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.7em;
+      font-weight: 800;
+    }
+    #contacto-section p {
+      font-size: 1.15em;
+      margin-bottom: 16px;
+    }
+    #contacto-section label {
+      font-weight: 700;
+      color: #2176ff;
+    }
+    #contacto-section input, #contacto-section textarea {
+      width: 100%;
+      max-width: 420px;
+      padding: 7px 9px;
+      border-radius: 5px;
+      border: 1px solid #b6d2f7;
+      margin-bottom: 15px;
+      font-size: 1em;
+      font-family: 'Quicksand', Arial, sans-serif;
+      background: #f8fbff;
+    }
+    #contacto-section button {
+      background:#2176ff;color:#fff;padding:10px 28px;border:none;
+      border-radius:5px;cursor:pointer;font-size:1.1em;font-weight:700;
+      margin-top:12px;box-shadow:0 1px 7px #b4d9ff44;
+    }
+    #contacto-section button:hover { background:#1450a3; }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(30px);}
       to   { opacity: 1; transform: translateY(0);}
@@ -216,8 +276,14 @@
       text-decoration: underline;
     }
 
+    @media (max-width: 1100px) {
+      .side-bar { min-width: 215px; padding: 32px 10px 18px 10px;}
+      .logo-nombre { gap: 18px;}
+      .logo { width: 90px; }
+      .site-title-stack { font-size: 1.45em;}
+    }
     @media (max-width: 900px) {
-      .main-container { flex-direction: column; }
+      .main-container { flex-direction: column;}
       .side-bar {
         flex-direction: row;
         align-items: center;
@@ -225,27 +291,37 @@
         max-width: 100vw;
         width:100%;
         padding:16px 8px 10px 8px;
+        box-shadow: 0 3px 18px #b4d9ff33;
       }
-      .logo-nombre { flex-direction: row; gap: 14px; margin-bottom: 10px;}
-      .logo { width: 70px; }
-      .site-title-stack { font-size: 1.3em;}
+      .logo-nombre { flex-direction: row; gap: 18px; margin-bottom: 10px;}
+      .logo { width: 80px; }
+      .site-title-stack { font-size: 1.25em;}
+      .side-links { flex-direction: row; gap: 26px; margin-top: 0; margin-left: 18px;}
+      .side-bar .contacto-breve { margin-top: 0;}
+      .cabecera-img { min-height: 140px; height: 28vw; max-height: 320px;}
+      #contacto-section { max-width: 98vw; }
       .proyectos-grid { gap: 18px;}
+    }
+    @media (max-width: 700px) {
+      .logo { width: 62px; }
+      .site-title-stack { font-size: 1.1em;}
     }
     @media (max-width: 500px) {
       .descripcion { font-size: 0.99em; }
       .side-links { gap: 8px;}
       .side-bar { padding: 10px 2px 8px 2px; }
       .logo-nombre { gap: 8px; }
-      .logo { width: 42px;}
-      .site-title-stack { font-size: 0.95em;}
+      .logo { width: 40px;}
+      .site-title-stack { font-size: 0.85em;}
       .ultimos-proyectos-title { font-size: 1.14em; }
       .proyecto-card { width: 98vw; min-width: 0; }
       .proyecto-img { height: 140px;}
+      .cabecera-img { min-height: 95px; height: 28vw; max-height: 200px;}
+      #contacto-section { padding: 16px 2vw; }
     }
   </style>
   <script>
     function mostrarContacto() {
-      // Oculta sección si ya está visible
       const c = document.getElementById('contacto-section');
       if (c.style.display === 'block') { c.style.display = 'none'; return; }
       c.style.display = 'block';
@@ -254,7 +330,6 @@
     function ocultarContacto() {
       document.getElementById('contacto-section').style.display = 'none';
     }
-    // Si se usa #contacto en la url, mostrar el contacto
     window.addEventListener('DOMContentLoaded', function() {
       if(window.location.hash === "#contacto") mostrarContacto();
     });
@@ -277,12 +352,32 @@
         <a href="javascript:void(0)" onclick="mostrarContacto()">Contacto</a>
       </nav>
       <div class="contacto-breve" style="margin-top:40px;">
-        <p>Transformación integral de espacios y gestión de reformas.<br>
-        <span style="color:#2176ff;">fliprenova360@gmail.com</span></p>
+        <p>
+          <span style="font-size:1.28em;color:#2176ff;display:block;margin-bottom:8px;">Transformación integral de espacios y gestión de reformas.</span>
+          <span style="color:#2176ff;font-size:1.22em;font-weight:900;letter-spacing:1px;">fliprenova360@gmail.com</span>
+        </p>
       </div>
+      <!-- Contact Form (moved here for appearing just below "Contacto") -->
+      <section id="contacto-section">
+        <h2>Contacto
+          <button onclick="ocultarContacto()" style="float:right;background:transparent;border:none;color:#2176ff;font-size:1.3em;cursor:pointer;" title="Cerrar">✖</button>
+        </h2>
+        <p>¿Quieres saber más? Escríbenos a <a href="mailto:fliprenova360@gmail.com" style="color:#2176ff;">fliprenova360@gmail.com</a> o rellena el siguiente formulario:</p>
+        <form action="mailto:fliprenova360@gmail.com" method="post" enctype="text/plain">
+          <label for="nombre">Nombre:</label><br>
+          <input type="text" id="nombre" name="nombre" required><br><br>
+          <label for="email">Correo electrónico:</label><br>
+          <input type="email" id="email" name="email" required><br><br>
+          <label for="mensaje">Mensaje:</label><br>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br><br>
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
     </aside>
     <main class="main-content">
-      <img src="cabeceraministriles.jpg" alt="Cabecera Flip Renova 360" class="cabecera-img">
+      <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=80"
+        alt="Salón moderno y luminoso tras una reforma integral, con grandes ventanales, mobiliario actual y detalles de madera"
+        class="cabecera-img">
       <section class="descripcion">
         <h2>Bienvenido a Flip Renova 360</h2>
         <p>
@@ -290,20 +385,6 @@
           Nuestra misión es aportar valor a cada proyecto, cuidando cada detalle y acompañando a nuestros clientes en todo el proceso, desde la idea inicial hasta la entrega final.<br><br>
           Descubre algunos de nuestros <a href="proyectos.html" style="color:#2176ff;font-weight:bold;">proyectos destacados</a> o <a href="javascript:void(0)" onclick="mostrarContacto()" style="color:#2176ff;font-weight:bold;">contacta con nosotros</a> para más información.
         </p>
-      </section>
-      <!-- Sección de contacto oculta -->
-      <section id="contacto-section" style="max-width:700px;margin:60px auto 40px auto;padding:0 20px;">
-        <h2 style="color:#2176ff;">Contacto <button onclick="ocultarContacto()" style="float:right;background:transparent;border:none;color:#2176ff;font-size:1.3em;cursor:pointer;" title="Cerrar">✖</button></h2>
-        <p>¿Quieres saber más? Escríbenos a <a href="mailto:fliprenova360@gmail.com" style="color:#2176ff;">fliprenova360@gmail.com</a> o rellena el siguiente formulario:</p>
-        <form action="mailto:fliprenova360@gmail.com" method="post" enctype="text/plain">
-          <label for="nombre">Nombre:</label><br>
-          <input type="text" id="nombre" name="nombre" required style="width:100%;max-width:400px;"><br><br>
-          <label for="email">Correo electrónico:</label><br>
-          <input type="email" id="email" name="email" required style="width:100%;max-width:400px;"><br><br>
-          <label for="mensaje">Mensaje:</label><br>
-          <textarea id="mensaje" name="mensaje" rows="4" required style="width:100%;max-width:400px;"></textarea><br><br>
-          <button type="submit" style="background:#2176ff;color:#fff;padding:8px 24px;border:none;border-radius:5px;cursor:pointer;">Enviar</button>
-        </form>
       </section>
 
       <!-- Últimos proyectos -->
@@ -320,7 +401,6 @@
           <a class="proyecto-link" href="proyectos.html#loscastros">Ver proyecto</a>
         </div>
       </div>
-
     </main>
   </div>
 </body>
