@@ -2,191 +2,108 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Flip Renova 360 - Reforma Integral</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flip Renova 360</title>
+  <link rel="stylesheet" href="assets/estilos.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: #fff;
-      color: #222;
-    }
-    .main-container {
-      display: flex;
-      flex-direction: row;
-      align-items: stretch;
-      min-height: 100vh;
-    }
-    .sidebar {
-      background: #fff;
-      min-width: 270px;
-      max-width: 340px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding: 2rem 1.5rem 1.5rem 2rem;
-      box-shadow: 2px 0 12px rgba(0,0,0,0.03);
-    }
-    .logo-area {
+    body { margin:0; font-family: Arial, sans-serif; }
+    .main-header {
       display: flex;
       align-items: center;
-      margin-bottom: 2rem;
-      text-decoration: none;
+      background: #f5f5f5;
+      padding: 20px 40px;
     }
-    .logo-area img {
+    .header-left {
+      display: flex;
+      align-items: center;
+      flex: 1 1 auto;
+    }
+    .logo {
       height: 80px;
-      margin-right: 16px;
-      vertical-align: middle;
-      display: inline-block;
+      margin-right: 18px;
     }
-    .logo-text {
+    .site-title {
+      font-size: 2.2em;
       font-weight: bold;
-      font-size: 1.9rem;
-      color: #4fc3f7;
-      letter-spacing: 1px;
-      font-family: 'Montserrat', Arial, sans-serif;
-      display: inline-block;
-      line-height: 1.1;
-      text-decoration: none;
-    }
-    .logo-text span {
-      display: block;
-      text-decoration: none;
-    }
-    nav {
-      width: 100%;
-      margin-top: 2rem;
-    }
-    nav a {
-      display: block;
-      color: #222;
-      text-decoration: none;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 1.2rem;
-      transition: color 0.2s;
-      padding-left: 2px;
-    }
-    nav a:hover {
-      color: #4fc3f7;
-    }
-    .content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      background: #fff;
-    }
-    .hero {
-      width: 100%;
-      height: 60vh;
-      min-height: 350px;
-      background: url('foto-principal.jpg') center center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .hero-text {
-      background: rgba(255,255,255,0.85);
-      padding: 2rem 3rem;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-      text-align: center;
-    }
-    .hero-text h1 {
-      font-size: 2.2rem;
-      margin: 0 0 0.5rem 0;
-      letter-spacing: 2px;
-      color: #4fc3f7;
-    }
-    .hero-text p {
-      font-size: 1.3rem;
-      color: #444;
+      color: #2b2e34;
       margin: 0;
     }
-    footer {
-      background: #fafbfc;
-      border-top: 1px solid #eee;
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 1rem;
-      color: #888;
-      margin-top: 3rem;
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      margin-left: auto;
     }
-    @media (max-width: 900px) {
-      .main-container {
-        flex-direction: column;
-      }
-      .sidebar {
-        flex-direction: row;
-        align-items: center;
-        padding: 1.2rem 1rem 1rem 1.2rem;
-        box-shadow: none;
-        min-width: 0;
-        max-width: none;
-      }
-      nav {
-        margin-top: 0;
-        margin-left: 2rem;
-      }
-      .logo-area {
-        margin-bottom: 0;
-      }
+    .nav-links a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 600;
+      font-size: 1em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #0074d9;
+    }
+    .cabecera-img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      margin-bottom: 0;
+      display: block;
+    }
+    .descripcion {
+      max-width: 850px;
+      margin: 45px auto 0 auto;
+      padding: 0 20px;
+      font-size: 1.16em;
+      color: #393939;
+      line-height: 1.6;
+      text-align: center;
     }
     @media (max-width: 600px) {
-      .sidebar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.6rem 0.6rem;
-      }
-      .logo-area img {
-        height: 44px;
-        margin-right: 8px;
-      }
-      .logo-text {
-        font-size: 1.1rem;
-      }
-      .hero {
-        height: 38vh;
-        min-height: 180px;
-      }
-      .hero-text {
-        padding: 1.2rem;
-      }
+      .main-header { flex-direction: column; align-items: flex-start; padding: 15px; }
+      .header-left { margin-bottom: 10px; }
+      .logo { height: 55px; }
+      .site-title { font-size: 1.3em; }
+      .nav-links { gap: 16px; }
     }
   </style>
 </head>
 <body>
-  <div class="main-container">
-    <aside class="sidebar">
-      <a href="#" class="logo-area">
-        <img src="logo.jpg" alt="Logo Flip Renova 360">
-        <span class="logo-text">
-          <span>Flip</span>
-          <span>Renova</span>
-          <span>360</span>
-        </span>
-      </a>
-      <nav>
-        <a href="#">Inicio</a>
-        <a href="proyectos.html">Proyectos</a>
-        <a href="#">Contacto</a>
-      </nav>
-    </aside>
-    <div class="content">
-      <section class="hero">
-        <div class="hero-text">
-          <h1>Reformas integrales con visión 360°</h1>
-          <p>Transformamos espacios en hogares modernos, eficientes y con personalidad.<br>Déjate inspirar por nuestros proyectos.</p>
-        </div>
-      </section>
-      <footer>
-        © 2025 Flip Renova 360 · Reformas integrales · Contacto: <a href="mailto:fliprenova360@gmail.com">info@fliprenova360.com</a>
-      </footer>
+  <header class="main-header">
+    <div class="header-left">
+      <img src="logo.jpg" alt="Logo Flip Renova 360" class="logo">
+      <span class="site-title">Flip Renova 360</span>
     </div>
-  </div>
+    <nav class="nav-links">
+      <a href="proyectos.html">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <img src="cabeceraministriles.jpg" alt="Cabecera Flip Renova 360" class="cabecera-img">
+
+  <section class="descripcion">
+    <h2>Bienvenido a Flip Renova 360</h2>
+    <p>
+      En <b>Flip Renova 360</b> nos especializamos en la transformación integral de espacios, ofreciendo soluciones de renovación, diseño y reforma con un enfoque profesional y personalizado.
+      Nuestra misión es aportar valor a cada proyecto, cuidando cada detalle y acompañando a nuestros clientes en todo el proceso, desde la idea inicial hasta la entrega final.<br><br>
+      Descubre algunos de nuestros proyectos destacados o <a href="#contacto">contacta con nosotros</a> para más información.
+    </p>
+  </section>
+
+  <!-- Sección de contacto de ejemplo (puedes adaptarla o mejorarla) -->
+  <section id="contacto" style="max-width:700px;margin:60px auto 40px auto;padding:0 20px;">
+    <h2>Contacto</h2>
+    <p>¿Quieres saber más? Escríbenos a <a href="mailto:fliprenova360@gmail.com">fliprenova360@gmail.com</a> o rellena el siguiente formulario:</p>
+    <form action="mailto:fliprenova360@gmail.com" method="post" enctype="text/plain">
+      <label for="nombre">Nombre:</label><br>
+      <input type="text" id="nombre" name="nombre" required style="width:100%;max-width:400px;"><br><br>
+      <label for="email">Correo electrónico:</label><br>
+      <input type="email" id="email" name="email" required style="width:100%;max-width:400px;"><br><br>
+      <label for="mensaje">Mensaje:</label><br>
+      <textarea id="mensaje" name="mensaje" rows="4" required style="width:100%;max-width:400px;"></textarea><br><br>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
 </body>
 </html>
