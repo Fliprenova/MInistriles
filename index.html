@@ -89,23 +89,20 @@
       margin: 28px 0 18px 0;
       width: 100%;
     }
-    .side-bar .contacto-breve {
-      font-size: 1.25em;
-      color: #2176ff;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.7px;
-      line-height: 1.45;
+    .contacto-breve {
       margin-top: 35px;
+      line-height: 1.45;
+      text-align: left;
     }
-    .side-bar .contacto-breve span {
-      color: #2176ff;
-      font-size: 1.25em;
+    .contacto-breve .side-highlight {
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
+      font-size: 1.25em; /* Igual que menú */
+      color: #2176ff;
       letter-spacing: 0.7px;
       display: block;
-      margin-top: 8px;
+      margin-bottom: 8px;
+      word-break: break-all;
     }
 
     .main-content {
@@ -298,7 +295,7 @@
       .logo { width: 80px; }
       .site-title-stack { font-size: 1.25em;}
       .side-links { flex-direction: row; gap: 26px; margin-top: 0; margin-left: 18px;}
-      .side-bar .contacto-breve { margin-top: 0;}
+      .contacto-breve { margin-top: 0;}
       .cabecera-img { min-height: 140px; height: 28vw; max-height: 320px;}
       #contacto-section { max-width: 98vw; }
       .proyectos-grid { gap: 18px;}
@@ -319,6 +316,7 @@
       .proyecto-img { height: 140px;}
       .cabecera-img { min-height: 95px; height: 28vw; max-height: 200px;}
       #contacto-section { padding: 16px 2vw; }
+      .contacto-breve .side-highlight { font-size: 1.02em; }
     }
   </style>
   <script>
@@ -352,9 +350,9 @@
         <a href="proyectos.html">Proyectos</a>
         <a href="javascript:void(0)" onclick="mostrarContacto()">Contacto</a>
       </nav>
-      <div class="contacto-breve" style="margin-top:40px;">
-        <span>Transformación integral de espacios y gestión de reformas.</span>
-        <span>fliprenova360@gmail.com</span>
+      <div class="contacto-breve">
+        <span class="side-highlight">Transformación integral de espacios y gestión de reformas.</span>
+        <span class="side-highlight">fliprenova360@gmail.com</span>
       </div>
       <!-- Contact Form (moved here for appearing just below "Contacto") -->
       <section id="contacto-section">
