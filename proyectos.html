@@ -84,16 +84,35 @@
       width: 360px;
       max-width: 90vw;
       margin: 0 auto;
-    }
-    .proyecto-img-link:hover {
-      box-shadow: 0 6px 28px rgba(79,195,247,0.17);
-      transform: scale(1.03);
+      position: relative;
+      text-align: center;
     }
     .proyecto-img-link img {
       width: 100%;
       display: block;
       object-fit: cover;
       height: 220px;
+    }
+    .proyecto-titulo {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(79,195,247,0.85);
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 0.6rem 0;
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      box-sizing: border-box;
+    }
+    .proyecto-img-link:hover {
+      box-shadow: 0 6px 28px rgba(79,195,247,0.17);
+      transform: scale(1.03);
     }
     @media (max-width: 600px) {
       .header {
@@ -121,6 +140,10 @@
       .proyecto-img-link img {
         height: 150px;
       }
+      .proyecto-titulo {
+        font-size: 1rem;
+        padding: 0.4rem 0;
+      }
     }
   </style>
 </head>
@@ -141,6 +164,11 @@
     <div class="proyectos-grid">
       <a href="ministriles.html" class="proyecto-img-link">
         <img src="Proyecto Ministriles/foto-proyecto-ministriles.jpg" alt="Proyecto Ministriles">
+        <div class="proyecto-titulo">Ministriles</div>
+      </a>
+      <a href="loscastros.html" class="proyecto-img-link">
+        <img src="Los_Castros_cabecera.jpg" alt="Proyecto Los Castros">
+        <div class="proyecto-titulo">Los Castros</div>
       </a>
       <!-- Puedes añadir más proyectos aquí si lo deseas -->
     </div>
