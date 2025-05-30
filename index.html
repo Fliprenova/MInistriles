@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="estilos.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Fonts para una tipografía más atractiva -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@500&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@400;500;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body { margin:0; font-family: 'Quicksand', Arial, sans-serif; background:#f8fafc; }
     .main-container {
@@ -90,19 +90,22 @@
       width: 100%;
     }
     .side-bar .contacto-breve {
-      font-size: 1.19em;
-      color: #444;
-      margin-top: 35px;
-      font-weight: bold;
+      font-size: 1.25em;
+      color: #2176ff;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.7px;
       line-height: 1.45;
+      margin-top: 35px;
     }
     .side-bar .contacto-breve span {
-      color:#2176ff;
+      color: #2176ff;
       font-size: 1.25em;
-      font-weight: 900;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.7px;
       display: block;
       margin-top: 8px;
-      letter-spacing: 1px;
     }
 
     .main-content {
@@ -144,15 +147,14 @@
       box-shadow: 0 4px 16px rgba(33, 118, 255, 0.03);
     }
     .descripcion h2 {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2.2em;
-      font-weight: 800;
+      font-family: 'Quicksand', Arial, sans-serif;
+      font-size: 2.3em;
+      font-weight: 700;
       letter-spacing: 1.2px;
       color: #2176ff;
       margin-bottom: 16px;
       margin-top: 0;
     }
-    /* Contacto oculto por defecto */
     #contacto-section {
       display: none;
       animation: fadeIn 0.6s;
@@ -206,7 +208,6 @@
       to   { opacity: 1; transform: translateY(0);}
     }
 
-    /* Últimos proyectos */
     .ultimos-proyectos-title {
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 900;
@@ -352,10 +353,8 @@
         <a href="javascript:void(0)" onclick="mostrarContacto()">Contacto</a>
       </nav>
       <div class="contacto-breve" style="margin-top:40px;">
-        <p>
-          <span style="font-size:1.28em;color:#2176ff;display:block;margin-bottom:8px;">Transformación integral de espacios y gestión de reformas.</span>
-          <span style="color:#2176ff;font-size:1.22em;font-weight:900;letter-spacing:1px;">fliprenova360@gmail.com</span>
-        </p>
+        <span>Transformación integral de espacios y gestión de reformas.</span>
+        <span>fliprenova360@gmail.com</span>
       </div>
       <!-- Contact Form (moved here for appearing just below "Contacto") -->
       <section id="contacto-section">
@@ -375,8 +374,8 @@
       </section>
     </aside>
     <main class="main-content">
-      <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=80"
-        alt="Salón moderno y luminoso tras una reforma integral, con grandes ventanales, mobiliario actual y detalles de madera"
+      <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1600&q=80"
+        alt="Salón moderno y cocina integrada con mobiliario actual, reforma luminosa y elegante"
         class="cabecera-img">
       <section class="descripcion">
         <h2>Bienvenido a Flip Renova 360</h2>
