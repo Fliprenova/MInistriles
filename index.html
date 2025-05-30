@@ -5,8 +5,10 @@
   <title>Flip Renova 360</title>
   <link rel="stylesheet" href="estilos.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts para una tipografía más atractiva -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@500&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; font-family: Arial, sans-serif; background:#f8fafc; }
+    body { margin:0; font-family: 'Quicksand', Arial, sans-serif; background:#f8fafc; }
     .main-container {
       display: flex;
       min-height: 100vh;
@@ -14,39 +16,68 @@
     }
     .side-bar {
       background: #fff;
-      min-width: 260px;
-      max-width: 320px;
-      padding: 40px 25px 30px 25px;
+      min-width: 320px;
+      max-width: 400px;
+      padding: 40px 30px 30px 30px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       box-shadow: 2px 0 18px rgba(0,0,0,0.07);
       justify-content: flex-start;
     }
+    .logo-nombre {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+      margin-bottom: 25px;
+    }
     .logo {
-      width: 90px;
-      margin-bottom: 20px;
+      width: 120px;
+      max-width: 35vw;
+      min-width: 80px;
+      height: auto;
+      transition: width 0.3s;
     }
-    .site-title {
-      font-size: 2em;
-      font-weight: bold;
+    .site-title-stack {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      line-height: 1.0;
+      font-size: 2.3em;
+      letter-spacing: 1.5px;
       color: #2176ff;
-      margin: 0 0 16px 0;
-      letter-spacing: 1px;
+      text-shadow: 1px 2px 8px #e0ecfb;
+      text-transform: uppercase;
+      margin-left: 0;
     }
+    .site-title-stack span {
+      display: block;
+    }
+    .site-title-stack span:nth-child(1) { color: #2176ff; }
+    .site-title-stack span:nth-child(2) { color: #1450a3; }
+    .site-title-stack span:nth-child(3) { color: #3d5ea8; }
+
     .side-links {
       display: flex;
       flex-direction: column;
       gap: 18px;
-      margin-top: 10px;
+      margin-top: 20px;
+      width: 100%;
     }
     .side-links a {
       text-decoration: none;
       color: #2176ff;
-      font-weight: 600;
-      font-size: 1.04em;
+      font-weight: 700;
+      font-size: 1.17em;
+      letter-spacing: 0.5px;
       transition: color 0.2s;
       padding-left: 2px;
+      font-family: 'Montserrat', Arial, sans-serif;
     }
     .side-links a:hover {
       text-decoration: underline;
@@ -59,7 +90,7 @@
       width: 100%;
     }
     .side-bar .contacto-breve {
-      font-size: 0.98em;
+      font-size: 1em;
       color: #444;
       margin-top: 12px;
     }
@@ -90,27 +121,70 @@
       line-height: 1.6;
       text-align: center;
     }
-    @media (max-width: 800px) {
+    /* Contacto oculto por defecto */
+    #contacto-section {
+      display: none;
+      animation: fadeIn 0.6s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to   { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 900px) {
       .main-container { flex-direction: column; }
-      .side-bar { flex-direction: row; align-items: center; min-width: 0; max-width: 100vw; width:100%; padding:16px 10px 10px 10px;}
-      .logo { width: 48px; margin-bottom: 0; }
-      .site-title { font-size: 1.2em; margin-bottom: 7px;}
+      .side-bar {
+        flex-direction: row;
+        align-items: center;
+        min-width: 0;
+        max-width: 100vw;
+        width:100%;
+        padding:16px 8px 10px 8px;
+      }
+      .logo-nombre { flex-direction: row; gap: 14px; margin-bottom: 10px;}
+      .logo { width: 70px; }
+      .site-title-stack { font-size: 1.3em;}
     }
     @media (max-width: 500px) {
       .descripcion { font-size: 0.99em; }
       .side-links { gap: 8px;}
+      .side-bar { padding: 10px 2px 8px 2px; }
+      .logo-nombre { gap: 8px; }
+      .logo { width: 42px;}
+      .site-title-stack { font-size: 0.95em;}
     }
   </style>
+  <script>
+    function mostrarContacto() {
+      // Oculta sección si ya está visible
+      const c = document.getElementById('contacto-section');
+      if (c.style.display === 'block') { c.style.display = 'none'; return; }
+      c.style.display = 'block';
+      c.scrollIntoView({behavior:'smooth'});
+    }
+    function ocultarContacto() {
+      document.getElementById('contacto-section').style.display = 'none';
+    }
+    // Si se usa #contacto en la url, mostrar el contacto
+    window.addEventListener('DOMContentLoaded', function() {
+      if(window.location.hash === "#contacto") mostrarContacto();
+    });
+  </script>
 </head>
 <body>
   <div class="main-container">
     <aside class="side-bar">
-      <img src="logo.jpg" alt="Logo Flip Renova 360" class="logo">
-      <span class="site-title">Flip Renova 360</span>
+      <div class="logo-nombre">
+        <img src="logo.jpg" alt="Logo Flip Renova 360" class="logo">
+        <div class="site-title-stack">
+          <span>Flip</span>
+          <span>Renova</span>
+          <span>360</span>
+        </div>
+      </div>
       <hr>
       <nav class="side-links">
         <a href="proyectos.html">Proyectos</a>
-        <a href="#contacto">Contacto</a>
+        <a href="javascript:void(0)" onclick="mostrarContacto()">Contacto</a>
       </nav>
       <div class="contacto-breve" style="margin-top:40px;">
         <p>Transformación integral de espacios y gestión de reformas.<br>
@@ -124,12 +198,12 @@
         <p>
           En <b style="color:#2176ff;">Flip Renova 360</b> nos especializamos en la transformación integral de espacios, ofreciendo soluciones de renovación, diseño y reforma con un enfoque profesional y personalizado.<br>
           Nuestra misión es aportar valor a cada proyecto, cuidando cada detalle y acompañando a nuestros clientes en todo el proceso, desde la idea inicial hasta la entrega final.<br><br>
-          Descubre algunos de nuestros <a href="proyectos.html" style="color:#2176ff;font-weight:bold;">proyectos destacados</a> o <a href="#contacto" style="color:#2176ff;font-weight:bold;">contacta con nosotros</a> para más información.
+          Descubre algunos de nuestros <a href="proyectos.html" style="color:#2176ff;font-weight:bold;">proyectos destacados</a> o <a href="javascript:void(0)" onclick="mostrarContacto()" style="color:#2176ff;font-weight:bold;">contacta con nosotros</a> para más información.
         </p>
       </section>
-      <!-- Sección de contacto de ejemplo (puedes mejorarla si quieres) -->
-      <section id="contacto" style="max-width:700px;margin:60px auto 40px auto;padding:0 20px;">
-        <h2 style="color:#2176ff;">Contacto</h2>
+      <!-- Sección de contacto oculta -->
+      <section id="contacto-section" style="max-width:700px;margin:60px auto 40px auto;padding:0 20px;">
+        <h2 style="color:#2176ff;">Contacto <button onclick="ocultarContacto()" style="float:right;background:transparent;border:none;color:#2176ff;font-size:1.3em;cursor:pointer;" title="Cerrar">✖</button></h2>
         <p>¿Quieres saber más? Escríbenos a <a href="mailto:fliprenova360@gmail.com" style="color:#2176ff;">fliprenova360@gmail.com</a> o rellena el siguiente formulario:</p>
         <form action="mailto:fliprenova360@gmail.com" method="post" enctype="text/plain">
           <label for="nombre">Nombre:</label><br>
