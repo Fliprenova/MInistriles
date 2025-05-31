@@ -24,9 +24,9 @@
     }
     aside.sidebar {
       background: #fff;
-      min-width: 310px;
-      max-width: 340px;
-      width: 22vw;
+      min-width: 370px;
+      max-width: 420px;
+      width: 27vw;
       box-shadow: 2px 0 18px rgba(0,0,0,0.07);
       padding: 0 0 0 0;
       display: flex;
@@ -36,7 +36,7 @@
       z-index: 100;
     }
     .sidebar-content {
-      padding: 38px 34px 0 34px;
+      padding: 44px 38px 0 38px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -51,7 +51,7 @@
       width: 100%;
     }
     .logo {
-      width: 75px;
+      width: 90px;
       min-width: 55px;
       height: auto;
     }
@@ -63,7 +63,7 @@
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 900;
       line-height: 1;
-      font-size: 2.1em;
+      font-size: 2.3em;
       letter-spacing: 1.2px;
       color: var(--color-principal);
       text-shadow: 1px 2px 8px #e0ecfb;
@@ -84,7 +84,7 @@
       text-decoration: none;
       color: var(--color-principal);
       font-weight: 700;
-      font-size: 1.13em;
+      font-size: 1.18em;
       letter-spacing: 0.6px;
       font-family: 'Montserrat', Arial, sans-serif;
       padding-left: 2px;
@@ -101,12 +101,12 @@
       width: 100%;
     }
     .contacto-breve {
-      font-size: 1.13em;
+      font-size: 1.18em;
       color: var(--color-principal);
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
       line-height: 1.5;
-      margin: 28px 0 0 0;
+      margin: 34px 0 0 0;
       text-align: left;
       width: 100%;
       word-break: break-word;
@@ -119,10 +119,10 @@
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 4px 24px #b4d9ff33;
-      margin: 24px 0 16px 0;
-      padding: 20px 10px 22px 10px;
+      margin: 28px 0 18px 0;
+      padding: 22px 10px 22px 10px;
       width: 100%;
-      max-width: 310px;
+      max-width: 350px;
       min-width: 0;
       border: 1px solid #e6effb;
       position: static;
@@ -132,7 +132,7 @@
       margin-top: 0;
       margin-bottom: 10px;
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1.18em;
+      font-size: 1.22em;
       font-weight: 800;
       text-align: left;
     }
@@ -146,7 +146,7 @@
     }
     #contacto-section input, #contacto-section textarea {
       width: 100%;
-      max-width: 270px;
+      max-width: 280px;
       padding: 7px 8px;
       border-radius: 5px;
       border: 1px solid #b6d2f7;
@@ -227,6 +227,12 @@
       margin-bottom: 12px;
       margin-top: 0;
     }
+    .descripcion a.contacto-link {
+      color: #2176ff;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: underline;
+    }
     .ultimos-proyectos-title {
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 900;
@@ -300,143 +306,87 @@
     @media (max-width: 900px) {
       .container { flex-direction: column;}
       aside.sidebar {
-        position: fixed;
-        left: -100vw;
-        top: 0;
-        width: 82vw;
+        position: static;
+        width: 100vw;
         min-width: 0;
-        max-width: 95vw;
-        height: 100vh;
-        box-shadow: 2px 0 24px #b4d9ff33;
-        z-index: 400;
-        transition: left 0.3s;
+        max-width: 100vw;
+        height: auto;
+        box-shadow: none;
         padding: 0;
+        border-bottom: 1px solid #e0e6ee;
       }
-      aside.sidebar.open { left: 0; }
-      .sidebar-content { padding: 32px 14px 0 14px;}
+      .sidebar-content {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 18px 0 0 0;
+        width: 100vw;
+        gap: 12px;
+      }
+      .logo-nombre {
+        margin-left: 10px;
+        gap: 10px;
+        margin-bottom: 0;
+      }
       .logo { width: 48px; }
-      .site-title-stack { font-size: 1.11em; }
-      .contacto-breve { font-size: 1.01em;}
-      #contacto-section { max-width: 93vw; }
-      .main-content { padding: 0; }
-      .cabecera-img { min-height: 110px; height: 28vw; max-height: 200px;}
-      .descripcion { font-size: 0.99em; }
-      .ultimos-proyectos-title { font-size: 1.14em; }
-      .proyecto-card { width: 98vw; min-width: 0; }
-      .proyecto-img { height: 120px;}
+      .site-title-stack { font-size: 1em;}
+      nav.side-links {
+        flex-direction: row;
+        gap: 16px;
+        margin-top: 0;
+        margin-left: 22px;
+        margin-bottom: 0;
+      }
+      .contacto-breve {
+        margin: 0 0 0 auto;
+        font-size: 0.98em;
+        max-width: 44vw;
+        min-width: 120px;
+      }
+      #contacto-section {
+        max-width: 97vw;
+        margin: 20px auto 10px auto;
+      }
     }
     @media (max-width: 650px) {
-      aside.sidebar { width: 97vw; }
-      .sidebar-content { padding: 22px 5vw 0 5vw;}
-      #contacto-section { max-width: 98vw; }
+      .sidebar-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 10px 3vw 0 3vw;
+      }
       .logo { width: 36px;}
-      .site-title-stack { font-size: 0.75em;}
+      .site-title-stack { font-size: 0.72em;}
+      nav.side-links { margin-left: 0; }
+      .contacto-breve { max-width: 97vw; margin: 12px 0 0 0;}
+      #contacto-section { max-width: 99vw; }
     }
     @media (max-width: 500px) {
-      .sidebar-content { padding: 10px 2vw 0 2vw;}
+      .sidebar-content { padding: 8px 1vw 0 1vw;}
       .logo { width: 24px;}
-      .site-title-stack { font-size: 0.55em;}
+      .site-title-stack { font-size: 0.54em;}
       .contacto-breve { font-size: 0.91em;}
-      #contacto-section { padding: 12px 1vw; }
+      #contacto-section { padding: 10px 1vw; }
     }
-    /* Topbar for mobile */
-    .topbar-mobile {
-      display: none;
-    }
-    @media (max-width: 900px) {
-      .topbar-mobile {
-        display: flex;
-        align-items: center;
-        background: #fff;
-        box-shadow: 0 2px 16px #e0ecfb33;
-        padding: 0 0 0 10px;
-        min-height: 54px;
-        position: sticky;
-        top: 0;
-        z-index: 401;
-      }
-      .container { margin-top: 0;}
-    }
-    @media (min-width: 900px) {
-      .topbar-mobile { display: none; }
-      aside.sidebar { position: static; height: auto; left: 0; }
-    }
-    /* Overlay for mobile */
-    .overlay {
-      display: none;
-      position: fixed;
-      left: 0; top: 0;
-      width: 100vw; height: 100vh;
-      background: #143b6b2a;
-      z-index: 390;
-    }
-    .overlay.open { display: block; }
   </style>
   <script>
     function mostrarContacto() {
-      ocultarSidebar();
-      const c = document.getElementById('contacto-section');
+      var c = document.getElementById('contacto-section');
       c.style.display = 'block';
       setTimeout(() => c.scrollIntoView({behavior:'smooth', block:'center'}), 100);
     }
     function ocultarContacto() {
       document.getElementById('contacto-section').style.display = 'none';
     }
-    function mostrarSidebar() {
-      document.querySelector('aside.sidebar').classList.add('open');
-      document.querySelector('.overlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function ocultarSidebar() {
-      document.querySelector('aside.sidebar').classList.remove('open');
-      document.querySelector('.overlay').classList.remove('open');
-      document.body.style.overflow = '';
-    }
     window.addEventListener('DOMContentLoaded', function() {
-      // Mobile menu logic
-      var menuBtn = document.getElementById('menu-toggle');
-      var closeSidebarBtn = document.getElementById('close-sidebar-btn');
-      var overlay = document.querySelector('.overlay');
-      if(menuBtn){
-        menuBtn.addEventListener('click', function(e){
-          e.stopPropagation();
-          mostrarSidebar();
-        });
-      }
-      if(closeSidebarBtn){
-        closeSidebarBtn.addEventListener('click', function(e){
-          e.stopPropagation();
-          ocultarSidebar();
-        });
-      }
-      if(overlay){
-        overlay.addEventListener('click', ocultarSidebar);
-      }
-      // Close sidebar on resize if desktop
-      window.addEventListener('resize', function(){
-        if(window.innerWidth > 900){
-          ocultarSidebar();
-        }
-      });
       // Mostrar contacto si hay hash
       if(window.location.hash === "#contacto") mostrarContacto();
     });
   </script>
 </head>
 <body>
-  <!-- Barra superior móvil -->
-  <div class="topbar-mobile">
-    <img src="logo.jpg" alt="Logo Flip Renova 360" class="logo">
-    <div class="site-title-stack" style="margin-right:18px;">
-      <span>Flip</span>
-      <span>Renova</span>
-      <span>360</span>
-    </div>
-    <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" style="margin-left:auto;font-size:2.1em;background:none;border:none;color:#2176ff;cursor:pointer;">&#9776;</button>
-  </div>
-  <div class="overlay"></div>
   <div class="container">
-    <!-- Sidebar fijo en desktop, lateral en móvil -->
+    <!-- Sidebar fijo en desktop, arriba en móvil -->
     <aside class="sidebar">
       <div class="sidebar-content">
         <div class="logo-nombre">
@@ -446,9 +396,7 @@
             <span>Renova</span>
             <span>360</span>
           </div>
-          <button class="close-btn" id="close-sidebar-btn" aria-label="Cerrar menú lateral" style="display:none;">✖</button>
         </div>
-        <hr class="sidebar-hr">
         <nav class="side-links">
           <a href="proyectos.html">Proyectos</a>
           <a href="javascript:void(0)" onclick="mostrarContacto()">Contacto</a>
@@ -457,24 +405,24 @@
           Transformación integral de espacios y gestión de reformas.<br>
           fliprenova360@gmail.com
         </div>
-        <!-- FORMULARIO CONTACTO (desktop & móvil) -->
-        <section id="contacto-section">
-          <h2>
-            Contacto
-            <button onclick="ocultarContacto()" class="cerrar-contacto" title="Cerrar">✖</button>
-          </h2>
-          <p>¿Quieres saber más? Escríbenos a <a href="mailto:fliprenova360@gmail.com" style="color:#2176ff;">fliprenova360@gmail.com</a> o rellena el siguiente formulario:</p>
-          <form action="mailto:fliprenova360@gmail.com" method="post" enctype="text/plain">
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" required><br>
-            <label for="email">Correo electrónico:</label><br>
-            <input type="email" id="email" name="email" required><br>
-            <label for="mensaje">Mensaje:</label><br>
-            <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
-            <button type="submit">Enviar</button>
-          </form>
-        </section>
       </div>
+      <!-- FORMULARIO CONTACTO (desktop & móvil) -->
+      <section id="contacto-section">
+        <h2>
+          Contacto
+          <button onclick="ocultarContacto()" class="cerrar-contacto" title="Cerrar">✖</button>
+        </h2>
+        <p>¿Quieres saber más? Escríbenos a <a href="mailto:fliprenova360@gmail.com" style="color:#2176ff;">fliprenova360@gmail.com</a> o rellena el siguiente formulario:</p>
+        <form action="mailto:fliprenova360@gmail.com" method="post" enctype="text/plain">
+          <label for="nombre">Nombre:</label><br>
+          <input type="text" id="nombre" name="nombre" required><br>
+          <label for="email">Correo electrónico:</label><br>
+          <input type="email" id="email" name="email" required><br>
+          <label for="mensaje">Mensaje:</label><br>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
     </aside>
     <!-- Contenido principal -->
     <main class="main-content">
@@ -486,7 +434,7 @@
         <p>
           En <b style="color:#2176ff;">Flip Renova 360</b> nos especializamos en la <span style="color:#1450a3;font-weight:700;">transformación integral de espacios</span>, ofreciendo soluciones de renovación, diseño y reforma con un enfoque profesional y personalizado.<br>
           Nuestra misión es aportar valor a cada proyecto, cuidando cada detalle y acompañando a nuestros clientes en todo el proceso, desde la idea inicial hasta la entrega final.<br><br>
-          Descubre algunos de nuestros <a href="proyectos.html" style="color:#2176ff;font-weight:bold;">proyectos destacados</a> o <a href="javascript:void(0)" onclick="mostrarContacto()" style="color:#2176ff;font-weight:bold;">contacta con nosotros</a> para más información.
+          Descubre algunos de nuestros <a href="proyectos.html" style="color:#2176ff;font-weight:bold;">proyectos destacados</a> o <a class="contacto-link" onclick="mostrarContacto()">contacta con nosotros</a> para más información.
         </p>
       </section>
       <!-- Últimos proyectos -->
@@ -505,60 +453,5 @@
       </div>
     </main>
   </div>
-  <script>
-    // Mostrar y ocultar menú lateral en móvil
-    function mostrarSidebar() {
-      document.querySelector('aside.sidebar').classList.add('open');
-      document.querySelector('.overlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-      // Mostrar botón de cerrar solo en móvil
-      if(window.innerWidth<=900){
-        document.getElementById('close-sidebar-btn').style.display='block';
-      }
-    }
-    function ocultarSidebar() {
-      document.querySelector('aside.sidebar').classList.remove('open');
-      document.querySelector('.overlay').classList.remove('open');
-      document.body.style.overflow = '';
-      document.getElementById('close-sidebar-btn').style.display='none';
-    }
-    function mostrarContacto() {
-      ocultarSidebar();
-      var c = document.getElementById('contacto-section');
-      c.style.display = 'block';
-      setTimeout(() => c.scrollIntoView({behavior:'smooth', block:'center'}), 100);
-    }
-    function ocultarContacto() {
-      document.getElementById('contacto-section').style.display = 'none';
-    }
-    window.addEventListener('DOMContentLoaded', function() {
-      var menuBtn = document.getElementById('menu-toggle');
-      var closeSidebarBtn = document.getElementById('close-sidebar-btn');
-      var overlay = document.querySelector('.overlay');
-      if(menuBtn){
-        menuBtn.addEventListener('click', function(e){
-          e.stopPropagation();
-          mostrarSidebar();
-        });
-      }
-      if(closeSidebarBtn){
-        closeSidebarBtn.addEventListener('click', function(e){
-          e.stopPropagation();
-          ocultarSidebar();
-        });
-      }
-      if(overlay){
-        overlay.addEventListener('click', ocultarSidebar);
-      }
-      // Close sidebar on resize if desktop
-      window.addEventListener('resize', function(){
-        if(window.innerWidth > 900){
-          ocultarSidebar();
-        }
-      });
-      // Mostrar contacto si hay hash
-      if(window.location.hash === "#contacto") mostrarContacto();
-    });
-  </script>
 </body>
 </html>
