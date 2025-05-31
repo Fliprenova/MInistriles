@@ -106,13 +106,21 @@
       margin: 34px 0 0 0;
       text-align: left;
       width: 260px;
-      word-break: break-word;
+      word-break: normal; /* Cambiado para evitar saltos de palabra */
       letter-spacing: 0.6px;
       background: #fff;
       z-index: 3;
       position: relative;
       padding-right: 0;
       padding-left: 0;
+    }
+    .contacto-breve .correo {
+      font-size: 1.07em;
+      word-break: normal;
+      white-space: nowrap;
+      overflow-x: auto;
+      display: inline-block;
+      max-width: 100%;
     }
     /* Formulario de contacto en sidebar (desktop) */
     #contacto-section {
@@ -351,6 +359,14 @@
         position: static;
         width: 94vw;
       }
+      .contacto-breve .correo {
+        font-size: 1em;
+        word-break: break-all;
+        white-space: normal;
+        overflow-x: auto;
+        display: inline;
+        max-width: 100%;
+      }
       #contacto-section {
         display: none !important;
         position: absolute !important;
@@ -461,7 +477,13 @@
         document.getElementById('contacto-section-movil').style.display = 'none';
       }
     }
+    // Al cargar la página en desktop, asegúrate de ocultar el formulario de contacto
     window.addEventListener('DOMContentLoaded', function() {
+      if(window.innerWidth > 900) {
+        document.getElementById('contacto-section').style.display = 'none';
+      } else {
+        document.getElementById('contacto-section-movil').style.display = 'none';
+      }
       if(window.location.hash === "#contacto") mostrarContacto();
     });
   </script>
@@ -485,7 +507,7 @@
         </nav>
         <div class="contacto-breve" style="margin-top:32px;">
           Transformación integral de espacios y gestión de reformas.<br>
-          fliprenova360@gmail.com
+          <span class="correo">fliprenova360@gmail.com</span>
           <br><br>
         </div>
       </div>
