@@ -22,13 +22,14 @@
       display: flex;
       min-height: 100vh;
     }
+    /* SIDEBAR DESKTOP */
     aside.sidebar {
       background: #fff;
       min-width: 370px;
       max-width: 420px;
       width: 27vw;
       box-shadow: 2px 0 18px rgba(0,0,0,0.07);
-      padding: 0 0 0 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -111,6 +112,11 @@
       width: 100%;
       word-break: break-word;
       letter-spacing: 0.6px;
+      /* Ajuste para que nunca se meta en la cabecera */
+      position: relative;
+      z-index: 2;
+      background: #fff;
+      padding-right: 12px;
     }
     /* Contacto lateral visible debajo de enlaces */
     #contacto-section {
@@ -202,6 +208,8 @@
       margin-bottom: 0;
       box-shadow: 0 6px 18px #b4d9ff44;
       display: block;
+      z-index: 1;
+      position: relative;
     }
     .descripcion {
       max-width: 750px;
@@ -317,24 +325,24 @@
       }
       .sidebar-content {
         flex-direction: row;
-        align-items: flex-start;
+        align-items: center;
         justify-content: flex-start;
-        padding: 18px 0 0 0;
+        padding: 16px 0 0 0;
         width: 100vw;
-        gap: 12px;
+        gap: 10px;
       }
       .logo-nombre {
-        margin-left: 10px;
+        margin-left: 14px;
         gap: 10px;
         margin-bottom: 0;
       }
-      .logo { width: 48px; }
+      .logo { width: 46px; }
       .site-title-stack { font-size: 1em;}
       nav.side-links {
         flex-direction: row;
-        gap: 16px;
+        gap: 14px;
         margin-top: 0;
-        margin-left: 22px;
+        margin-left: 18px;
         margin-bottom: 0;
       }
       .contacto-breve {
@@ -342,10 +350,81 @@
         font-size: 0.98em;
         max-width: 44vw;
         min-width: 120px;
+        background: #fff;
+        padding: 0;
+        position: static;
       }
+      /* Formulario contacto: oculto en sidebar, aparece en main! */
       #contacto-section {
-        max-width: 97vw;
-        margin: 20px auto 10px auto;
+        display: none !important;
+        position: absolute !important;
+        left: -9999px !important;
+      }
+      /* Formulario contacto MÓVIL en main */
+      #contacto-section-movil {
+        display: none;
+        animation: fadeIn 0.6s;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px #b4d9ff33;
+        margin: 22px 0 12px 0;
+        padding: 20px 2vw 22px 2vw;
+        width: 98vw;
+        max-width: 400px;
+        min-width: 0;
+        border: 1px solid #e6effb;
+        position: static;
+        z-index: 10;
+      }
+      #contacto-section-movil h2 {
+        color: var(--color-principal);
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-family: 'Montserrat', Arial, sans-serif;
+        font-size: 1.18em;
+        font-weight: 800;
+        text-align: left;
+      }
+      #contacto-section-movil p {
+        font-size: 0.99em;
+        margin-bottom: 12px;
+      }
+      #contacto-section-movil label {
+        font-weight: 700;
+        color: var(--color-principal);
+      }
+      #contacto-section-movil input, #contacto-section-movil textarea {
+        width: 100%;
+        max-width: 280px;
+        padding: 7px 8px;
+        border-radius: 5px;
+        border: 1px solid #b6d2f7;
+        margin-bottom: 11px;
+        font-size: 1em;
+        font-family: 'Quicksand', Arial, sans-serif;
+        background: #f8fbff;
+      }
+      #contacto-section-movil button {
+        background: var(--color-principal);
+        color: #fff;
+        padding: 8px 22px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 700;
+        margin-top: 8px;
+        box-shadow: 0 1px 7px #b4d9ff44;
+      }
+      #contacto-section-movil button:hover { background: var(--color-secundario);}
+      #contacto-section-movil .cerrar-contacto {
+        float: right;
+        background: transparent;
+        border: none;
+        color: var(--color-principal);
+        font-size: 1.2em;
+        cursor: pointer;
+        margin-left: 8px;
       }
     }
     @media (max-width: 650px) {
@@ -359,24 +438,33 @@
       .site-title-stack { font-size: 0.72em;}
       nav.side-links { margin-left: 0; }
       .contacto-breve { max-width: 97vw; margin: 12px 0 0 0;}
-      #contacto-section { max-width: 99vw; }
+      #contacto-section-movil { max-width: 99vw; }
     }
     @media (max-width: 500px) {
       .sidebar-content { padding: 8px 1vw 0 1vw;}
       .logo { width: 24px;}
       .site-title-stack { font-size: 0.54em;}
       .contacto-breve { font-size: 0.91em;}
-      #contacto-section { padding: 10px 1vw; }
+      #contacto-section-movil { padding: 10px 1vw; }
     }
   </style>
   <script>
+    // Mostrar/ocultar contacto en desktop y móvil
     function mostrarContacto() {
-      var c = document.getElementById('contacto-section');
-      c.style.display = 'block';
-      setTimeout(() => c.scrollIntoView({behavior:'smooth', block:'center'}), 100);
+      if(window.innerWidth > 900) {
+        document.getElementById('contacto-section').style.display = 'block';
+        setTimeout(() => document.getElementById('contacto-section').scrollIntoView({behavior:'smooth', block:'center'}), 100);
+      } else {
+        document.getElementById('contacto-section-movil').style.display = 'block';
+        setTimeout(() => document.getElementById('contacto-section-movil').scrollIntoView({behavior:'smooth', block:'center'}), 100);
+      }
     }
     function ocultarContacto() {
-      document.getElementById('contacto-section').style.display = 'none';
+      if(window.innerWidth > 900) {
+        document.getElementById('contacto-section').style.display = 'none';
+      } else {
+        document.getElementById('contacto-section-movil').style.display = 'none';
+      }
     }
     window.addEventListener('DOMContentLoaded', function() {
       // Mostrar contacto si hay hash
@@ -406,7 +494,7 @@
           fliprenova360@gmail.com
         </div>
       </div>
-      <!-- FORMULARIO CONTACTO (desktop & móvil) -->
+      <!-- FORMULARIO CONTACTO SOLO EN DESKTOP -->
       <section id="contacto-section">
         <h2>
           Contacto
@@ -436,6 +524,23 @@
           Nuestra misión es aportar valor a cada proyecto, cuidando cada detalle y acompañando a nuestros clientes en todo el proceso, desde la idea inicial hasta la entrega final.<br><br>
           Descubre algunos de nuestros <a href="proyectos.html" style="color:#2176ff;font-weight:bold;">proyectos destacados</a> o <a class="contacto-link" onclick="mostrarContacto()">contacta con nosotros</a> para más información.
         </p>
+      </section>
+      <!-- FORMULARIO CONTACTO SOLO EN MÓVIL -->
+      <section id="contacto-section-movil">
+        <h2>
+          Contacto
+          <button onclick="ocultarContacto()" class="cerrar-contacto" title="Cerrar">✖</button>
+        </h2>
+        <p>¿Quieres saber más? Escríbenos a <a href="mailto:fliprenova360@gmail.com" style="color:#2176ff;">fliprenova360@gmail.com</a> o rellena el siguiente formulario:</p>
+        <form action="mailto:fliprenova360@gmail.com" method="post" enctype="text/plain">
+          <label for="nombre_m">Nombre:</label><br>
+          <input type="text" id="nombre_m" name="nombre" required><br>
+          <label for="email_m">Correo electrónico:</label><br>
+          <input type="email" id="email_m" name="email" required><br>
+          <label for="mensaje_m">Mensaje:</label><br>
+          <textarea id="mensaje_m" name="mensaje" rows="4" required></textarea><br>
+          <button type="submit">Enviar</button>
+        </form>
       </section>
       <!-- Últimos proyectos -->
       <h2 class="ultimos-proyectos-title">Últimos proyectos</h2>
