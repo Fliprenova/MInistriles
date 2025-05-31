@@ -3,129 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <title>Flip Renova 360</title>
-  <link rel="stylesheet" href="estilos.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@400;500;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; font-family: 'Quicksand', Arial, sans-serif; background:#f8fafc; }
-    .header-bar {
+    :root {
+      --color-principal: #2176ff;
+      --color-secundario: #1450a3;
+    }
+    body {
+      margin: 0;
+      font-family: 'Quicksand', Arial, sans-serif;
+      background: #f8fafc;
+      color: #222;
+      min-height: 100vh;
+    }
+    .container {
       display: flex;
-      align-items: center;
+      min-height: 100vh;
+    }
+    aside.sidebar {
       background: #fff;
-      box-shadow: 0 2px 16px #e0ecfb33;
-      padding: 0 0 0 16px;
-      min-height: 70px;
+      min-width: 310px;
+      max-width: 340px;
+      width: 22vw;
+      box-shadow: 2px 0 18px rgba(0,0,0,0.07);
+      padding: 0 0 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       position: relative;
-      z-index: 101;
+      z-index: 100;
+    }
+    .sidebar-content {
+      padding: 38px 34px 0 34px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .logo-nombre {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+      width: 100%;
     }
     .logo {
-      width: 68px;
+      width: 75px;
+      min-width: 55px;
       height: auto;
-      margin-right: 15px;
-      display: block;
     }
     .site-title-stack {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: flex-start;
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 900;
-      font-size: 1.7em;
+      line-height: 1;
+      font-size: 2.1em;
       letter-spacing: 1.2px;
-      color: #2176ff;
+      color: var(--color-principal);
       text-shadow: 1px 2px 8px #e0ecfb;
       text-transform: uppercase;
-      line-height: 1.0;
+      margin-left: 0;
     }
-    .site-title-stack span:nth-child(1) { color: #2176ff; }
-    .site-title-stack span:nth-child(2) { color: #1450a3; }
+    .site-title-stack span:nth-child(1) { color: var(--color-principal); }
+    .site-title-stack span:nth-child(2) { color: var(--color-secundario); }
     .site-title-stack span:nth-child(3) { color: #3d5ea8; }
-    .menu-toggle {
-      margin-left: auto;
-      background: none;
-      border: none;
-      font-size: 2.3em;
-      color: #2176ff;
-      cursor: pointer;
-      display: none;
-      z-index: 200;
-      padding: 0 20px 0 0;
-    }
-
-    .side-bar {
-      background: #fff;
-      width: 250px;
-      min-width: 200px;
-      max-width: 85vw;
-      padding: 28px 22px 18px 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      box-shadow: 2px 0 18px rgba(0,0,0,0.07);
-      position: fixed;
-      top: 0;
-      left: -300px;
-      height: 100vh;
-      z-index: 300;
-      transition: left 0.3s;
-    }
-    .side-bar.open {
-      left: 0;
-    }
-    .side-bar .close-btn {
-      background: none;
-      border: none;
-      color: #2176ff;
-      font-size: 2em;
-      align-self: flex-end;
-      cursor: pointer;
-      margin-bottom: 22px;
-    }
-    .side-links {
+    nav.side-links {
       display: flex;
       flex-direction: column;
       gap: 18px;
-      margin-top: 10px;
+      margin-top: 12px;
       width: 100%;
     }
     .side-links a {
       text-decoration: none;
-      color: #2176ff;
+      color: var(--color-principal);
       font-weight: 700;
-      font-size: 1.15em;
-      letter-spacing: 0.7px;
+      font-size: 1.13em;
+      letter-spacing: 0.6px;
       font-family: 'Montserrat', Arial, sans-serif;
+      padding-left: 2px;
       transition: color 0.2s;
     }
     .side-links a:hover {
       text-decoration: underline;
-      color: #143b6b;
+      color: var(--color-secundario);
+    }
+    hr.sidebar-hr {
+      border: none;
+      border-top: 1px solid #e0e6ee;
+      margin: 22px 0 16px 0;
+      width: 100%;
     }
     .contacto-breve {
-      margin: 30px 0 0 0;
-      line-height: 1.45;
-      text-align: left;
-      word-break: break-word;
+      font-size: 1.13em;
+      color: var(--color-principal);
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
-      font-size: 1.15em;
-      color: #2176ff;
-      letter-spacing: 0.7px;
-      max-width: 90vw;
-      white-space: pre-line;
+      line-height: 1.5;
+      margin: 28px 0 0 0;
+      text-align: left;
+      width: 100%;
+      word-break: break-word;
+      letter-spacing: 0.6px;
     }
-    .overlay {
+    /* Contacto lateral visible debajo de enlaces */
+    #contacto-section {
       display: none;
-      position: fixed;
-      left: 0; top: 0;
-      width: 100vw; height: 100vh;
-      background: #143b6b2a;
-      z-index: 200;
+      animation: fadeIn 0.6s;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px #b4d9ff33;
+      margin: 24px 0 16px 0;
+      padding: 20px 10px 22px 10px;
+      width: 100%;
+      max-width: 310px;
+      min-width: 0;
+      border: 1px solid #e6effb;
+      position: static;
     }
-    .overlay.open { display: block; }
-
-    .main-content {
+    #contacto-section h2 {
+      color: var(--color-principal);
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.18em;
+      font-weight: 800;
+      text-align: left;
+    }
+    #contacto-section p {
+      font-size: 1em;
+      margin-bottom: 12px;
+    }
+    #contacto-section label {
+      font-weight: 700;
+      color: var(--color-principal);
+    }
+    #contacto-section input, #contacto-section textarea {
+      width: 100%;
+      max-width: 270px;
+      padding: 7px 8px;
+      border-radius: 5px;
+      border: 1px solid #b6d2f7;
+      margin-bottom: 11px;
+      font-size: 1em;
+      font-family: 'Quicksand', Arial, sans-serif;
+      background: #f8fbff;
+    }
+    #contacto-section button {
+      background: var(--color-principal);
+      color: #fff;
+      padding: 8px 22px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 700;
+      margin-top: 8px;
+      box-shadow: 0 1px 7px #b4d9ff44;
+    }
+    #contacto-section button:hover { background: var(--color-secundario);}
+    #contacto-section .cerrar-contacto {
+      float: right;
+      background: transparent;
+      border: none;
+      color: var(--color-principal);
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-left: 8px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to   { opacity: 1; transform: translateY(0);}
+    }
+    /* MAIN CONTENT */
+    main.main-content {
+      flex: 1 1 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -135,8 +193,8 @@
     }
     .cabecera-img {
       width: 100%;
-      max-height: 430px;
-      min-height: 180px;
+      max-height: 380px;
+      min-height: 170px;
       height: 28vw;
       object-fit: cover;
       background: #d0e7ff;
@@ -165,72 +223,16 @@
       font-size: 2.1em;
       font-weight: 700;
       letter-spacing: 1.1px;
-      color: #2176ff;
+      color: var(--color-principal);
       margin-bottom: 12px;
       margin-top: 0;
     }
-    #contacto-section {
-      display: none;
-      animation: fadeIn 0.6s;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px #b4d9ff33;
-      margin: 30px auto 20px auto;
-      padding: 24px 10vw 22px 10vw;
-      width: 100%;
-      max-width: 380px;
-      min-width: 210px;
-      position: relative;
-      left: 0;
-      right: 0;
-      z-index: 5;
-      border: 1px solid #e6effb;
-    }
-    #contacto-section h2 {
-      color:#2176ff;
-      margin-top:0;
-      margin-bottom:16px;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1.25em;
-      font-weight: 800;
-      text-align: left;
-    }
-    #contacto-section p {
-      font-size: 1.08em;
-      margin-bottom: 12px;
-    }
-    #contacto-section label {
-      font-weight: 700;
-      color: #2176ff;
-    }
-    #contacto-section input, #contacto-section textarea {
-      width: 100%;
-      max-width: 320px;
-      padding: 7px 8px;
-      border-radius: 5px;
-      border: 1px solid #b6d2f7;
-      margin-bottom: 11px;
-      font-size: 1em;
-      font-family: 'Quicksand', Arial, sans-serif;
-      background: #f8fbff;
-    }
-    #contacto-section button {
-      background:#2176ff;color:#fff;padding:8px 22px;border:none;
-      border-radius:5px;cursor:pointer;font-size:1em;font-weight:700;
-      margin-top:8px;box-shadow:0 1px 7px #b4d9ff44;
-    }
-    #contacto-section button:hover { background:#1450a3; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px);}
-      to   { opacity: 1; transform: translateY(0);}
-    }
-
     .ultimos-proyectos-title {
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 900;
       font-size: 2.0em;
       letter-spacing: 1.5px;
-      color: #2176ff;
+      color: var(--color-principal);
       text-shadow: 1px 2px 8px #e0ecfb;
       text-transform: uppercase;
       margin: 60px auto 22px auto;
@@ -270,14 +272,14 @@
       font-family: 'Montserrat', Arial, sans-serif;
       font-size: 1.15em;
       font-weight: bold;
-      color: #2176ff;
+      color: var(--color-principal);
       margin: 15px 0 8px 0;
       letter-spacing: 1px;
     }
     .proyecto-link {
       display: inline-block;
       font-family: 'Quicksand', Arial, sans-serif;
-      color: #1450a3;
+      color: var(--color-secundario);
       background: #e8f1ff;
       border-radius: 5px;
       padding: 7px 22px;
@@ -289,56 +291,90 @@
       box-shadow: 0 1px 5px rgba(33, 118, 255, 0.05);
     }
     .proyecto-link:hover {
-      background: #2176ff;
+      background: var(--color-principal);
       color: #fff;
       text-decoration: underline;
     }
 
     /* MOBILE STYLES */
     @media (max-width: 900px) {
-      .header-bar { min-height: 56px; }
-      .logo { width: 50px; }
-      .site-title-stack { font-size: 1.01em;}
+      .container { flex-direction: column;}
+      aside.sidebar {
+        position: fixed;
+        left: -100vw;
+        top: 0;
+        width: 82vw;
+        min-width: 0;
+        max-width: 95vw;
+        height: 100vh;
+        box-shadow: 2px 0 24px #b4d9ff33;
+        z-index: 400;
+        transition: left 0.3s;
+        padding: 0;
+      }
+      aside.sidebar.open { left: 0; }
+      .sidebar-content { padding: 32px 14px 0 14px;}
+      .logo { width: 48px; }
+      .site-title-stack { font-size: 1.11em; }
+      .contacto-breve { font-size: 1.01em;}
+      #contacto-section { max-width: 93vw; }
       .main-content { padding: 0; }
       .cabecera-img { min-height: 110px; height: 28vw; max-height: 200px;}
       .descripcion { font-size: 0.99em; }
       .ultimos-proyectos-title { font-size: 1.14em; }
       .proyecto-card { width: 98vw; min-width: 0; }
       .proyecto-img { height: 120px;}
-      #contacto-section { max-width: 97vw; padding: 20px 2vw; }
-      .side-bar { padding: 18px 10px 12px 10px; width: 82vw; min-width: 0; }
-      .contacto-breve { font-size: 1.08em;}
     }
-    @media (max-width: 600px) {
-      .header-bar { min-height: 44px; padding-left: 4px; }
-      .logo { width: 34px; margin-right: 10px;}
-      .site-title-stack { font-size: 0.66em;}
-      .main-content { padding: 0; }
-      .side-bar { width: 96vw; }
-      #contacto-section { max-width: 99vw; min-width: 0; }
+    @media (max-width: 650px) {
+      aside.sidebar { width: 97vw; }
+      .sidebar-content { padding: 22px 5vw 0 5vw;}
+      #contacto-section { max-width: 98vw; }
+      .logo { width: 36px;}
+      .site-title-stack { font-size: 0.75em;}
     }
-    @media (max-width: 400px) {
-      .header-bar { min-height: 35px; }
+    @media (max-width: 500px) {
+      .sidebar-content { padding: 10px 2vw 0 2vw;}
       .logo { width: 24px;}
-      .descripcion { font-size: 0.93em;}
-      .side-bar { padding: 6px 3vw 8px 3vw;}
+      .site-title-stack { font-size: 0.55em;}
+      .contacto-breve { font-size: 0.91em;}
+      #contacto-section { padding: 12px 1vw; }
     }
+    /* Topbar for mobile */
+    .topbar-mobile {
+      display: none;
+    }
+    @media (max-width: 900px) {
+      .topbar-mobile {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        box-shadow: 0 2px 16px #e0ecfb33;
+        padding: 0 0 0 10px;
+        min-height: 54px;
+        position: sticky;
+        top: 0;
+        z-index: 401;
+      }
+      .container { margin-top: 0;}
+    }
+    @media (min-width: 900px) {
+      .topbar-mobile { display: none; }
+      aside.sidebar { position: static; height: auto; left: 0; }
+    }
+    /* Overlay for mobile */
+    .overlay {
+      display: none;
+      position: fixed;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: #143b6b2a;
+      z-index: 390;
+    }
+    .overlay.open { display: block; }
   </style>
   <script>
-    // Sidebar menu for mobile
-    function openSidebar() {
-      document.querySelector('.side-bar').classList.add('open');
-      document.querySelector('.overlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeSidebar() {
-      document.querySelector('.side-bar').classList.remove('open');
-      document.querySelector('.overlay').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    // Contacto section
     function mostrarContacto() {
-      closeSidebar();
+      ocultarSidebar();
       const c = document.getElementById('contacto-section');
       c.style.display = 'block';
       setTimeout(() => c.scrollIntoView({behavior:'smooth', block:'center'}), 100);
@@ -346,80 +382,183 @@
     function ocultarContacto() {
       document.getElementById('contacto-section').style.display = 'none';
     }
+    function mostrarSidebar() {
+      document.querySelector('aside.sidebar').classList.add('open');
+      document.querySelector('.overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function ocultarSidebar() {
+      document.querySelector('aside.sidebar').classList.remove('open');
+      document.querySelector('.overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
     window.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('menu-toggle').onclick = openSidebar;
-      document.querySelector('.overlay').onclick = closeSidebar;
-      document.getElementById('close-sidebar-btn').onclick = closeSidebar;
-      // Acceso directo a contacto
+      // Mobile menu logic
+      var menuBtn = document.getElementById('menu-toggle');
+      var closeSidebarBtn = document.getElementById('close-sidebar-btn');
+      var overlay = document.querySelector('.overlay');
+      if(menuBtn){
+        menuBtn.addEventListener('click', function(e){
+          e.stopPropagation();
+          mostrarSidebar();
+        });
+      }
+      if(closeSidebarBtn){
+        closeSidebarBtn.addEventListener('click', function(e){
+          e.stopPropagation();
+          ocultarSidebar();
+        });
+      }
+      if(overlay){
+        overlay.addEventListener('click', ocultarSidebar);
+      }
+      // Close sidebar on resize if desktop
+      window.addEventListener('resize', function(){
+        if(window.innerWidth > 900){
+          ocultarSidebar();
+        }
+      });
+      // Mostrar contacto si hay hash
       if(window.location.hash === "#contacto") mostrarContacto();
     });
   </script>
 </head>
 <body>
-  <div class="header-bar">
+  <!-- Barra superior móvil -->
+  <div class="topbar-mobile">
     <img src="logo.jpg" alt="Logo Flip Renova 360" class="logo">
     <div class="site-title-stack" style="margin-right:18px;">
       <span>Flip</span>
       <span>Renova</span>
       <span>360</span>
     </div>
-    <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" style="margin-left:auto;font-size:2.1em;background:none;border:none;color:#2176ff;cursor:pointer;">&#9776;</button>
   </div>
   <div class="overlay"></div>
-  <nav class="side-bar" aria-label="Menú lateral">
-    <button class="close-btn" id="close-sidebar-btn" aria-label="Cerrar menú lateral">✖</button>
-    <div class="side-links">
-      <a href="proyectos.html">Proyectos</a>
-      <a href="javascript:void(0)" onclick="mostrarContacto()">Contacto</a>
-      <a href="index.html" style="color:#888;">Inicio</a>
-    </div>
-    <div class="contacto-breve" style="margin-top:30px; text-align:left;">
-      Transformación integral de espacios y gestión de reformas.<br>
-      fliprenova360@gmail.com
-    </div>
-  </nav>
-  <main class="main-content">
-    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1600&q=80"
-      alt="Salón moderno y cocina integrada con mobiliario actual, reforma luminosa y elegante"
-      class="cabecera-img">
-    <section class="descripcion">
-      <h2>Bienvenido a Flip Renova 360</h2>
-      <p>
-        En <b style="color:#2176ff;">Flip Renova 360</b> nos especializamos en la <span style="color:#1450a3;font-weight:700;">transformación integral de espacios</span>, ofreciendo soluciones de renovación, diseño y reforma con un enfoque profesional y personalizado.<br>
-        Nuestra misión es aportar valor a cada proyecto, cuidando cada detalle y acompañando a nuestros clientes en todo el proceso, desde la idea inicial hasta la entrega final.<br><br>
-        Descubre algunos de nuestros <a href="proyectos.html" style="color:#2176ff;font-weight:bold;">proyectos destacados</a> o <a href="javascript:void(0)" onclick="mostrarContacto()" style="color:#2176ff;font-weight:bold;">contacta con nosotros</a> para más información.
-      </p>
-    </section>
-    <!-- Sección de contacto oculta -->
-    <section id="contacto-section">
-      <h2>Contacto
-        <button onclick="ocultarContacto()" style="float:right;background:transparent;border:none;color:#2176ff;font-size:1.25em;cursor:pointer;" title="Cerrar">✖</button>
-      </h2>
-      <p>¿Quieres saber más? Escríbenos a <a href="mailto:fliprenova360@gmail.com" style="color:#2176ff;">fliprenova360@gmail.com</a> o rellena el siguiente formulario:</p>
-      <form action="mailto:fliprenova360@gmail.com" method="post" enctype="text/plain">
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" required><br>
-        <label for="email">Correo electrónico:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="mensaje">Mensaje:</label><br>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
-    <!-- Últimos proyectos -->
-    <h2 class="ultimos-proyectos-title">Últimos proyectos</h2>
-    <div class="proyectos-grid">
-      <div class="proyecto-card">
-        <img src="ministriles.jpg" alt="Proyecto Ministriles" class="proyecto-img">
-        <div class="proyecto-title">Ministriles</div>
-        <a class="proyecto-link" href="proyectos.html#ministriles">Ver proyecto</a>
+  <div class="container">
+    <!-- Sidebar fijo en desktop, lateral en móvil -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <div class="logo-nombre">
+          <img src="logo.jpg" alt="Logo Flip Renova 360" class="logo">
+          <div class="site-title-stack">
+            <span>Flip</span>
+            <span>Renova</span>
+            <span>360</span>
+          </div>
+          <button class="close-btn" id="close-sidebar-btn" aria-label="Cerrar menú lateral" style="display:none;">✖</button>
+        </div>
+        <hr class="sidebar-hr">
+        <nav class="side-links">
+          <a href="proyectos.html">Proyectos</a>
+          <a href="javascript:void(0)" onclick="mostrarContacto()">Contacto</a>
+        </nav>
+        <div class="contacto-breve" style="margin-top:32px;">
+          Transformación integral de espacios y gestión de reformas.<br>
+          fliprenova360@gmail.com
+        </div>
+        <!-- FORMULARIO CONTACTO (desktop & móvil) -->
+        <section id="contacto-section">
+          <h2>
+            Contacto
+            <button onclick="ocultarContacto()" class="cerrar-contacto" title="Cerrar">✖</button>
+          </h2>
+          <p>¿Quieres saber más? Escríbenos a <a href="mailto:fliprenova360@gmail.com" style="color:#2176ff;">fliprenova360@gmail.com</a> o rellena el siguiente formulario:</p>
+          <form action="mailto:fliprenova360@gmail.com" method="post" enctype="text/plain">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="email">Correo electrónico:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="mensaje">Mensaje:</label><br>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
+            <button type="submit">Enviar</button>
+          </form>
+        </section>
       </div>
-      <div class="proyecto-card">
-        <img src="loscastros.jpg" alt="Proyecto Los Castros" class="proyecto-img">
-        <div class="proyecto-title">Los Castros</div>
-        <a class="proyecto-link" href="proyectos.html#loscastros">Ver proyecto</a>
+    </aside>
+    <!-- Contenido principal -->
+    <main class="main-content">
+      <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1600&q=80"
+        alt="Salón moderno y cocina integrada con mobiliario actual, reforma luminosa y elegante"
+        class="cabecera-img">
+      <section class="descripcion">
+        <h2>Bienvenido a Flip Renova 360</h2>
+        <p>
+          En <b style="color:#2176ff;">Flip Renova 360</b> nos especializamos en la <span style="color:#1450a3;font-weight:700;">transformación integral de espacios</span>, ofreciendo soluciones de renovación, diseño y reforma con un enfoque profesional y personalizado.<br>
+          Nuestra misión es aportar valor a cada proyecto, cuidando cada detalle y acompañando a nuestros clientes en todo el proceso, desde la idea inicial hasta la entrega final.<br><br>
+          Descubre algunos de nuestros <a href="proyectos.html" style="color:#2176ff;font-weight:bold;">proyectos destacados</a> o <a href="javascript:void(0)" onclick="mostrarContacto()" style="color:#2176ff;font-weight:bold;">contacta con nosotros</a> para más información.
+        </p>
+      </section>
+      <!-- Últimos proyectos -->
+      <h2 class="ultimos-proyectos-title">Últimos proyectos</h2>
+      <div class="proyectos-grid">
+        <div class="proyecto-card">
+          <img src="ministriles.jpg" alt="Proyecto Ministriles" class="proyecto-img">
+          <div class="proyecto-title">Ministriles</div>
+          <a class="proyecto-link" href="proyectos.html#ministriles">Ver proyecto</a>
+        </div>
+        <div class="proyecto-card">
+          <img src="loscastros.jpg" alt="Proyecto Los Castros" class="proyecto-img">
+          <div class="proyecto-title">Los Castros</div>
+          <a class="proyecto-link" href="proyectos.html#loscastros">Ver proyecto</a>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
+  </div>
+  <script>
+    // Mostrar y ocultar menú lateral en móvil
+    function mostrarSidebar() {
+      document.querySelector('aside.sidebar').classList.add('open');
+      document.querySelector('.overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      // Mostrar botón de cerrar solo en móvil
+      if(window.innerWidth<=900){
+        document.getElementById('close-sidebar-btn').style.display='block';
+      }
+    }
+    function ocultarSidebar() {
+      document.querySelector('aside.sidebar').classList.remove('open');
+      document.querySelector('.overlay').classList.remove('open');
+      document.body.style.overflow = '';
+      document.getElementById('close-sidebar-btn').style.display='none';
+    }
+    function mostrarContacto() {
+      ocultarSidebar();
+      var c = document.getElementById('contacto-section');
+      c.style.display = 'block';
+      setTimeout(() => c.scrollIntoView({behavior:'smooth', block:'center'}), 100);
+    }
+    function ocultarContacto() {
+      document.getElementById('contacto-section').style.display = 'none';
+    }
+    window.addEventListener('DOMContentLoaded', function() {
+      var menuBtn = document.getElementById('menu-toggle');
+      var closeSidebarBtn = document.getElementById('close-sidebar-btn');
+      var overlay = document.querySelector('.overlay');
+      if(menuBtn){
+        menuBtn.addEventListener('click', function(e){
+          e.stopPropagation();
+          mostrarSidebar();
+        });
+      }
+      if(closeSidebarBtn){
+        closeSidebarBtn.addEventListener('click', function(e){
+          e.stopPropagation();
+          ocultarSidebar();
+        });
+      }
+      if(overlay){
+        overlay.addEventListener('click', ocultarSidebar);
+      }
+      // Close sidebar on resize if desktop
+      window.addEventListener('resize', function(){
+        if(window.innerWidth > 900){
+          ocultarSidebar();
+        }
+      });
+      // Mostrar contacto si hay hash
+      if(window.location.hash === "#contacto") mostrarContacto();
+    });
+  </script>
 </body>
 </html>
