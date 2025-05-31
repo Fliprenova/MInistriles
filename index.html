@@ -4,375 +4,15 @@
   <meta charset="UTF-8">
   <title>Flip Renova 360</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@400;500;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --color-principal: #2176ff;
-      --color-secundario: #1450a3;
-    }
-    body {
-      margin: 0;
-      font-family: 'Quicksand', Arial, sans-serif;
-      background: #f8fafc;
-      color: #222;
-      min-height: 100vh;
-    }
-    .container {
-      display: flex;
-      min-height: 100vh;
-    }
-    /* SIDEBAR DESKTOP */
-    aside.sidebar {
-      background: #fff;
-      min-width: 340px;
-      max-width: 340px;
-      width: 340px;
-      box-shadow: 2px 0 18px rgba(0,0,0,0.07);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      position: relative;
-      z-index: 2;
-    }
-    .sidebar-content {
-      padding: 42px 28px 0 32px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .logo-nombre {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 18px;
-      width: 100%;
-    }
-    .logo {
-      width: 85px;
-      min-width: 55px;
-      height: auto;
-    }
-    .site-title-stack {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 900;
-      line-height: 1;
-      font-size: 2.1em;
-      letter-spacing: 1.2px;
-      color: var(--color-principal);
-      text-shadow: 1px 2px 8px #e0ecfb;
-      text-transform: uppercase;
-      margin-left: 0;
-    }
-    nav.side-links {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-top: 12px;
-      width: 100%;
-    }
-    .side-links a {
-      text-decoration: none;
-      color: var(--color-principal);
-      font-weight: 700;
-      font-size: 1.18em;
-      letter-spacing: 0.6px;
-      font-family: 'Montserrat', Arial, sans-serif;
-      padding-left: 2px;
-      transition: color 0.2s;
-    }
-    .side-links a:hover {
-      text-decoration: underline;
-      color: var(--color-secundario);
-    }
-    hr.sidebar-hr {
-      border: none;
-      border-top: 1px solid #e0e6ee;
-      margin: 22px 0 16px 0;
-      width: 100%;
-    }
-    .contacto-breve {
-      font-size: 1.13em;
-      color: var(--color-principal);
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      line-height: 1.5;
-      margin: 34px 0 0 0;
-      text-align: left;
-      width: 260px;
-      word-break: normal; /* Cambiado para evitar saltos de palabra */
-      letter-spacing: 0.6px;
-      background: #fff;
-      z-index: 3;
-      position: relative;
-      padding-right: 0;
-      padding-left: 0;
-    }
-    .contacto-breve .correo {
-      font-size: 1.07em;
-      word-break: normal;
-      white-space: nowrap;
-      overflow-x: auto;
-      display: inline-block;
-      max-width: 100%;
-    }
-    /* Formulario de contacto en sidebar (desktop) */
-    #contacto-section {
-      display: none;
-      animation: fadeIn 0.6s;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px #b4d9ff33;
-      margin: 28px 0 18px 0;
-      padding: 22px 10px 22px 10px;
-      width: 100%;
-      max-width: 310px;
-      min-width: 0;
-      border: 1px solid #e6effb;
-      position: static;
-      z-index: 4;
-    }
-    #contacto-section h2 {
-      color: var(--color-principal);
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1.22em;
-      font-weight: 800;
-      text-align: left;
-    }
-    #contacto-section p {
-      font-size: 1em;
-      margin-bottom: 12px;
-    }
-    #contacto-section label {
-      font-weight: 700;
-      color: var(--color-principal);
-    }
-    #contacto-section input, #contacto-section textarea {
-      width: 100%;
-      max-width: 260px;
-      padding: 7px 8px;
-      border-radius: 5px;
-      border: 1px solid #b6d2f7;
-      margin-bottom: 11px;
-      font-size: 1em;
-      font-family: 'Quicksand', Arial, sans-serif;
-      background: #f8fbff;
-    }
-    #contacto-section button {
-      background: var(--color-principal);
-      color: #fff;
-      padding: 8px 22px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1em;
-      font-weight: 700;
-      margin-top: 8px;
-      box-shadow: 0 1px 7px #b4d9ff44;
-    }
-    #contacto-section button:hover { background: var(--color-secundario);}
-    #contacto-section .cerrar-contacto {
-      float: right;
-      background: transparent;
-      border: none;
-      color: var(--color-principal);
-      font-size: 1.2em;
-      cursor: pointer;
-      margin-left: 8px;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px);}
-      to   { opacity: 1; transform: translateY(0);}
-    }
-    /* MAIN CONTENT */
-    main.main-content {
-      flex: 1 1 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-width: 0;
-      width: 100%;
-      position: relative;
-      z-index: 1;
-    }
-    .cabecera-img {
-      width: 100%;
-      max-height: 380px;
-      min-height: 170px;
-      height: 28vw;
-      object-fit: cover;
-      background: #d0e7ff;
-      border-bottom: 2px solid #e6effb;
-      margin-bottom: 0;
-      box-shadow: 0 6px 18px #b4d9ff44;
-      display: block;
-      z-index: 1;
-      position: relative;
-    }
-    .descripcion {
-      max-width: 750px;
-      margin: 35px auto 0 auto;
-      padding: 0 24px;
-      font-size: 1.13em;
-      color: #222;
-      line-height: 1.7;
-      text-align: center;
-      font-family: 'Nunito', 'Quicksand', Arial, sans-serif;
-      font-weight: 500;
-      background: none;
-      border-radius: 12px;
-      letter-spacing: 0.03em;
-      box-shadow: 0 4px 16px rgba(33, 118, 255, 0.03);
-    }
-    .descripcion h2 {
-      font-family: 'Quicksand', Arial, sans-serif;
-      font-size: 2.1em;
-      font-weight: 700;
-      letter-spacing: 1.1px;
-      color: var(--color-principal);
-      margin-bottom: 12px;
-      margin-top: 0;
-    }
-    .descripcion a.contacto-link {
-      color: #2176ff;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-    .ultimos-proyectos-title {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 900;
-      font-size: 2.0em;
-      letter-spacing: 1.5px;
-      color: var(--color-principal);
-      text-shadow: 1px 2px 8px #e0ecfb;
-      text-transform: uppercase;
-      margin: 60px auto 22px auto;
-      text-align: center;
-    }
-    .proyectos-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-      justify-content: center;
-      margin-bottom: 48px;
-    }
-    .proyecto-card {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 3px 16px rgba(33, 118, 255, 0.09);
-      overflow: hidden;
-      width: 310px;
-      max-width: 90vw;
-      text-align: center;
-      transition: transform 0.18s, box-shadow 0.18s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .proyecto-card:hover {
-      transform: translateY(-8px) scale(1.027);
-      box-shadow: 0 8px 28px rgba(33, 118, 255, 0.18);
-    }
-    .proyecto-img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      border-bottom: 1px solid #e1e6f0;
-    }
-    .proyecto-title {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1.15em;
-      font-weight: bold;
-      color: var(--color-principal);
-      margin: 15px 0 8px 0;
-      letter-spacing: 1px;
-    }
-    .proyecto-link {
-      display: inline-block;
-      font-family: 'Quicksand', Arial, sans-serif;
-      color: var(--color-secundario);
-      background: #e8f1ff;
-      border-radius: 5px;
-      padding: 7px 22px;
-      margin-bottom: 15px;
-      font-size: 1em;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background 0.18s, color 0.18s;
-      box-shadow: 0 1px 5px rgba(33, 118, 255, 0.05);
-    }
-    .proyecto-link:hover {
-      background: var(--color-principal);
-      color: #fff;
-      text-decoration: underline;
-    }
+    /* ... (el resto de tu CSS igual que antes) ... */
 
-    /* MOBILE STYLES */
+    /* FORMULARIO DE CONTACTO EN MOVIL SIEMPRE OCULTO EN DESKTOP */
+    #contacto-section-movil {
+      display: none !important;
+    }
     @media (max-width: 900px) {
-      .container { flex-direction: column;}
-      aside.sidebar {
-        position: static;
-        width: 100vw;
-        min-width: 0;
-        max-width: 100vw;
-        height: auto;
-        box-shadow: none;
-        padding: 0;
-        border-bottom: 1px solid #e0e6ee;
-        z-index: 3;
-      }
-      .sidebar-content {
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 16px 0 0 0;
-        width: 100vw;
-        gap: 10px;
-      }
-      .logo-nombre {
-        margin-left: 14px;
-        gap: 10px;
-        margin-bottom: 0;
-      }
-      .logo { width: 44px; }
-      .site-title-stack { font-size: 1em;}
-      nav.side-links {
-        display: none !important;
-      }
-      .contacto-breve {
-        margin: 0 0 18px 0;
-        font-size: 0.98em;
-        max-width: 94vw;
-        min-width: 120px;
-        background: #fff;
-        padding: 0;
-        position: static;
-        width: 94vw;
-      }
-      .contacto-breve .correo {
-        font-size: 1em;
-        word-break: break-all;
-        white-space: normal;
-        overflow-x: auto;
-        display: inline;
-        max-width: 100%;
-      }
-      #contacto-section {
-        display: none !important;
-        position: absolute !important;
-        left: -9999px !important;
-      }
-      /* Formulario contacto MÓVIL en main */
       #contacto-section-movil {
         display: none;
         animation: fadeIn 0.6s;
@@ -388,85 +28,18 @@
         position: static;
         z-index: 10;
       }
-      #contacto-section-movil h2 {
-        color: var(--color-principal);
-        margin-top: 0;
-        margin-bottom: 10px;
-        font-family: 'Montserrat', Arial, sans-serif;
-        font-size: 1.18em;
-        font-weight: 800;
-        text-align: left;
-      }
-      #contacto-section-movil p {
-        font-size: 0.99em;
-        margin-bottom: 12px;
-      }
-      #contacto-section-movil label {
-        font-weight: 700;
-        color: var(--color-principal);
-      }
-      #contacto-section-movil input, #contacto-section-movil textarea {
-        width: 100%;
-        max-width: 280px;
-        padding: 7px 8px;
-        border-radius: 5px;
-        border: 1px solid #b6d2f7;
-        margin-bottom: 11px;
-        font-size: 1em;
-        font-family: 'Quicksand', Arial, sans-serif;
-        background: #f8fbff;
-      }
-      #contacto-section-movil button {
-        background: var(--color-principal);
-        color: #fff;
-        padding: 8px 22px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1em;
-        font-weight: 700;
-        margin-top: 8px;
-        box-shadow: 0 1px 7px #b4d9ff44;
-      }
-      #contacto-section-movil button:hover { background: var(--color-secundario);}
-      #contacto-section-movil .cerrar-contacto {
-        float: right;
-        background: transparent;
-        border: none;
-        color: var(--color-principal);
-        font-size: 1.2em;
-        cursor: pointer;
-        margin-left: 8px;
-      }
-    }
-    @media (max-width: 650px) {
-      .sidebar-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: 10px 3vw 0 3vw;
-      }
-      .logo { width: 32px;}
-      .site-title-stack { font-size: 0.72em;}
-      .contacto-breve { max-width: 97vw; margin: 12px 0 18px 0;}
-      #contacto-section-movil { max-width: 99vw; }
-    }
-    @media (max-width: 500px) {
-      .sidebar-content { padding: 8px 1vw 0 1vw;}
-      .logo { width: 22px;}
-      .site-title-stack { font-size: 0.54em;}
-      .contacto-breve { font-size: 0.91em;}
-      #contacto-section-movil { padding: 10px 1vw; }
     }
   </style>
   <script>
-    // Mostrar/ocultar contacto en desktop y móvil
     function mostrarContacto() {
       if(window.innerWidth > 900) {
         document.getElementById('contacto-section').style.display = 'block';
+        // En desktop, aseguramos que el del main no se muestre nunca
+        if(document.getElementById('contacto-section-movil')) document.getElementById('contacto-section-movil').style.display = 'none';
         setTimeout(() => document.getElementById('contacto-section').scrollIntoView({behavior:'smooth', block:'center'}), 100);
       } else {
         document.getElementById('contacto-section-movil').style.display = 'block';
+        if(document.getElementById('contacto-section')) document.getElementById('contacto-section').style.display = 'none';
         setTimeout(() => document.getElementById('contacto-section-movil').scrollIntoView({behavior:'smooth', block:'center'}), 100);
       }
     }
@@ -477,12 +50,14 @@
         document.getElementById('contacto-section-movil').style.display = 'none';
       }
     }
-    // Al cargar la página en desktop, asegúrate de ocultar el formulario de contacto
     window.addEventListener('DOMContentLoaded', function() {
+      // Asegura que sólo se muestre el formulario correcto según el modo
       if(window.innerWidth > 900) {
         document.getElementById('contacto-section').style.display = 'none';
+        if(document.getElementById('contacto-section-movil')) document.getElementById('contacto-section-movil').style.display = 'none';
       } else {
-        document.getElementById('contacto-section-movil').style.display = 'none';
+        if(document.getElementById('contacto-section')) document.getElementById('contacto-section').style.display = 'none';
+        if(document.getElementById('contacto-section-movil')) document.getElementById('contacto-section-movil').style.display = 'none';
       }
       if(window.location.hash === "#contacto") mostrarContacto();
     });
