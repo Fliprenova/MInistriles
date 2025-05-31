@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Flip Renova 360</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Quicksand:wght@400;500;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -22,22 +21,20 @@
       display: flex;
       min-height: 100vh;
     }
-    /* SIDEBAR DESKTOP */
     aside.sidebar {
       background: #fff;
       min-width: 370px;
-      max-width: 420px;
+      max-width: 430px;
       width: 27vw;
       box-shadow: 2px 0 18px rgba(0,0,0,0.07);
-      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       position: relative;
-      z-index: 100;
+      z-index: 2;
     }
     .sidebar-content {
-      padding: 44px 38px 0 38px;
+      padding: 42px 34px 0 38px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -64,16 +61,13 @@
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 900;
       line-height: 1;
-      font-size: 2.3em;
+      font-size: 2.2em;
       letter-spacing: 1.2px;
       color: var(--color-principal);
       text-shadow: 1px 2px 8px #e0ecfb;
       text-transform: uppercase;
       margin-left: 0;
     }
-    .site-title-stack span:nth-child(1) { color: var(--color-principal); }
-    .site-title-stack span:nth-child(2) { color: var(--color-secundario); }
-    .site-title-stack span:nth-child(3) { color: #3d5ea8; }
     nav.side-links {
       display: flex;
       flex-direction: column;
@@ -112,10 +106,9 @@
       width: 100%;
       word-break: break-word;
       letter-spacing: 0.6px;
-      /* Ajuste para que nunca se meta en la cabecera */
-      position: relative;
-      z-index: 2;
       background: #fff;
+      z-index: 3;
+      position: relative;
       padding-right: 12px;
     }
     /* Contacto lateral visible debajo de enlaces */
@@ -132,6 +125,7 @@
       min-width: 0;
       border: 1px solid #e6effb;
       position: static;
+      z-index: 4;
     }
     #contacto-section h2 {
       color: var(--color-principal);
@@ -196,6 +190,8 @@
       justify-content: flex-start;
       min-width: 0;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
     .cabecera-img {
       width: 100%;
@@ -322,6 +318,7 @@
         box-shadow: none;
         padding: 0;
         border-bottom: 1px solid #e0e6ee;
+        z-index: 3;
       }
       .sidebar-content {
         flex-direction: row;
@@ -354,7 +351,6 @@
         padding: 0;
         position: static;
       }
-      /* Formulario contacto: oculto en sidebar, aparece en main! */
       #contacto-section {
         display: none !important;
         position: absolute !important;
@@ -367,7 +363,7 @@
         background: #fff;
         border-radius: 12px;
         box-shadow: 0 4px 24px #b4d9ff33;
-        margin: 22px 0 12px 0;
+        margin: 22px auto 12px auto;
         padding: 20px 2vw 22px 2vw;
         width: 98vw;
         max-width: 400px;
@@ -467,7 +463,6 @@
       }
     }
     window.addEventListener('DOMContentLoaded', function() {
-      // Mostrar contacto si hay hash
       if(window.location.hash === "#contacto") mostrarContacto();
     });
   </script>
